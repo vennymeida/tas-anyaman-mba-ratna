@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Handmade Woven Bag Mba' Ratna</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f2;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Login Form Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .login-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            color: #976d3b;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #976d3b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #7d5a2f;
+        }
+        
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            padding: 40px 0;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-header h2 {
+            color: #976d3b;
+        }
+        
+        .logout-btn {
+            background-color: #d9534f;
+            padding: 10px 20px;
+        }
+        
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background-color: #976d3b;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Form Styles */
+        .add-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .form-title {
+            margin-bottom: 20px;
+            color: #976d3b;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+        }
+        
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        /* Item List Styles */
+        .item-list {
+            margin-top: 30px;
+        }
+        
+        .item-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 150px 120px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            font-weight: 600;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .item-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 150px 120px;
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        
+        .item-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .edit-btn, .delete-btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .edit-btn {
+            background-color: #5bc0de;
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            background-color: #46b8da;
+        }
+        
+        .delete-btn {
+            background-color: #d9534f;
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c9302c;
+        }
+
+        /* Blog list styles */
+        .blog-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 120px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            font-weight: 600;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .blog-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 120px;
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        /* Success message styles */
+        .success-message {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+        <div class="login-form">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="admin-panel">
+        <div class="container">
+            <div class="admin-header">
+                <h2>Admin Panel - Handmade Woven Bag Mba' Ratna</h2>
+                <button class="btn logout-btn" id="logout-btn">Logout</button>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="products">Manage Products</button>
+                <button class="tab-btn" data-tab="blogs">Manage Blogs</button>
+            </div>
+            
+            <!-- Products Tab -->
+            <div class="tab-content active" id="products-tab">
+                <div class="success-message" id="product-success-message">Product added successfully!</div>
+                <div class="add-form">
+                    <h3 class="form-title">Add New Product</h3>
+                    <form id="add-product-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-title">Product Title</label>
+                                <input type="text" id="product-title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-price">Price</label>
+                                <input type="text" id="product-price" name="price" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-description">Description</label>
+                            <textarea id="product-description" name="description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Image URL</label>
+                            <input type="text" id="product-image" name="image" required>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn">Add Product</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="item-list">
+                    <h3 class="form-title">Product List</h3>
+                    <div class="item-header">
+                        <div>Image</div>
+                        <div>Title & Description</div>
+                        <div>Price</div>
+                        <div>Actions</div>
+                    </div>
+                    <div id="product-list">
+                        <!-- Product items will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blogs Tab -->
+            <div class="tab-content" id="blogs-tab">
+                <div class="success-message" id="blog-success-message">Blog post added successfully!</div>
+                <div class="add-form">
+                    <h3 class="form-title">Add New Blog Post</h3>
+                    <form id="add-blog-form">
+                        <div class="form-group">
+                            <label for="blog-title">Blog Title</label>
+                            <input type="text" id="blog-title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-content">Content</label>
+                            <textarea id="blog-content" name="content" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-image">Featured Image URL</label>
+                            <input type="text" id="blog-image" name="image" required>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn">Add Blog Post</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="item-list">
+                    <h3 class="form-title">Blog Posts</h3>
+                    <div class="blog-header">
+                        <div>Image</div>
+                        <div>Title</div>
+                        <div>Actions</div>
+                    </div>
+                    <div id="blog-list">
+                        <!-- Blog items will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample admin credentials
+        const adminUser = {
+            username: 'admin',
+            password: 'password123'
+        };
+        
+        // Sample data
+        let products = [
+            {
+                id: 1,
+                title: 'Traditional Woven Basket',
+                description: 'Handcrafted with natural rattan and palm leaves',
+                price: '$45.00',
+                image: 'images/Anyaman 1.jpg'
+            },
+            {
+                id: 2,
+                title: 'Decorative Wall Hanging',
+                description: 'Intricate design woven with cotton and jute fibers',
+                price: '$65.00',
+                image: 'images/Anyaman 2.jpg'
+            },
+            {
+                id: 3,
+                title: 'Handwoven Tote Bag',
+                description: 'Durable and stylish, made from sustainable materials',
+                price: '$38.00',
+                image: 'images/Anyaman 3.jpg'
+            },
+            {
+                id: 4,
+                title: 'Woven Table Runner',
+                description: 'Beautiful table decoration with traditional patterns',
+                price: '$52.00',
+                image: 'images/Anyaman 4.jpg'
+            }
+        ];
+        
+        let blogs = [
+            {
+                id: 1,
+                title: 'Material Selection',
+                content: 'We carefully select sustainable natural materials like bamboo, rattan, palm leaves, and cotton from local sources.',
+                image: 'images/Process 1.png'
+            },
+            {
+                id: 2,
+                title: 'Material Preparation',
+                content: 'The materials are prepared by soaking, drying, and cutting to achieve the right texture and flexibility for weaving.',
+                image: 'images/Process 2.png'
+            },
+            {
+                id: 3,
+                title: 'Traditional Weaving',
+                content: 'Our skilled artisans weave each piece by hand using traditional techniques passed down through generations.',
+                image: 'images/Process 3.png'
+            },
+            {
+                id: 4,
+                title: 'Quality Finishing',
+                content: 'Each product is carefully finished and inspected to ensure it meets our high standards of quality and durability.',
+                image: 'images/Process 4.png'
+            }
+        ];
+        
+        // DOM Elements
+        const loginForm = document.getElementById('login-form');
+        const loginContainer = document.getElementById('login-container');
+        const adminPanel = document.getElementById('admin-panel');
+        const logoutBtn = document.getElementById('logout-btn');
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const addProductForm = document.getElementById('add-product-form');
+        const addBlogForm = document.getElementById('add-blog-form');
+        const productList = document.getElementById('product-list');
+        const blogList = document.getElementById('blog-list');
+        const productSuccessMessage = document.getElementById('product-success-message');
+        const blogSuccessMessage = document.getElementById('blog-success-message');
+        
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === adminUser.username && password === adminUser.password) {
+                loginContainer.style.display = 'none';
+                adminPanel.style.display = 'block';
+                
+                // Initialize the panel
+                renderProductList();
+                renderBlogList();
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+        
+        // Logout button
+        logoutBtn.addEventListener('click', function() {
+            loginContainer.style.display = 'flex';
+            adminPanel.style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+        
+        // Tab switching
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons and content
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // Add product form submission
+        addProductForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newProduct = {
+                id: products.length + 1,
+                title: document.getElementById('product-title').value,
+                description: document.getElementById('product-description').value,
+                price: document.getElementById('product-price').value,
+                image: document.getElementById('product-image').value
+            };
+            
+            products.push(newProduct);
+            saveProducts(); 
+            renderProductList();
+            
+            // Reset form
+            addProductForm.reset();
+            
+            // Show success message
+            productSuccessMessage.style.display = 'block';
+            setTimeout(() => {
+                productSuccessMessage.style.display = 'none';
+            }, 3000);
+        });
+        
+        // Add blog form submission
+        addBlogForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newBlog = {
+                id: blogs.length + 1,
+                title: document.getElementById('blog-title').value,
+                content: document.getElementById('blog-content').value,
+                image: document.getElementById('blog-image').value
+            };
+            
+            blogs.push(newBlog);
+            saveBlogs(); 
+            renderBlogList();
+            
+            // Reset form
+            addBlogForm.reset();
+            
+            // Show success message
+            blogSuccessMessage.style.display = 'block';
+            setTimeout(() => {
+                blogSuccessMessage.style.display = 'none';
+            }, 3000);
+        });
+        
+        // Render product list
+        function renderProductList() {
+            productList.innerHTML = '';
+            
+            products.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.className = 'item-row';
+                productItem.innerHTML = `
+                    <div>
+                        <img src="${product.image}" alt="${product.title}" class="item-image">
+                    </div>
+                    <div>
+                        <h4>${product.title}</h4>
+                        <p>${product.description}</p>
+                    </div>
+                    <div>${product.price}</div>
+                    <div class="action-buttons">
+                        <button class="edit-btn" data-id="${product.id}">Edit</button>
+                        <button class="delete-btn" data-id="${product.id}">Delete</button>
+                    </div>
+                `;
+                productList.appendChild(productItem);
+            });
+            
+            // Add event listeners to edit and delete buttons
+            document.querySelectorAll('#product-list .edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editProduct(parseInt(this.getAttribute('data-id')));
+                });
+            });
+            
+            document.querySelectorAll('#product-list .delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    deleteProduct(parseInt(this.getAttribute('data-id')));
+                });
+            });
+        }
+        
+        // Render blog list
+        function renderBlogList() {
+            blogList.innerHTML = '';
+            
+            blogs.forEach(blog => {
+                const blogItem = document.createElement('div');
+                blogItem.className = 'blog-row';
+                blogItem.innerHTML = `
+                    <div>
+                        <img src="${blog.image}" alt="${blog.title}" class="item-image">
+                    </div>
+                    <div>
+                        <h4>${blog.title}</h4>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="edit-btn" data-id="${blog.id}">Edit</button>
+                        <button class="delete-btn" data-id="${blog.id}">Delete</button>
+                    </div>
+                `;
+                blogList.appendChild(blogItem);
+            });
+            
+            // Add event listeners to edit and delete buttons
+            document.querySelectorAll('#blog-list .edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editBlog(parseInt(this.getAttribute('data-id')));
+                });
+            });
+            
+            document.querySelectorAll('#blog-list .delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    deleteBlog(parseInt(this.getAttribute('data-id')));
+                });
+            });
+        }
+        
+        // Edit product
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                document.getElementById('product-title').value = product.title;
+                document.getElementById('product-description').value = product.description;
+                document.getElementById('product-price').value = product.price;
+                document.getElementById('product-image').value = product.image;
+                
+                // Change form action to update
+                addProductForm.onsubmit = function(e) {
+                    e.preventDefault();
+                    
+                    product.title = document.getElementById('product-title').value;
+                    product.description = document.getElementById('product-description').value;
+                    product.price = document.getElementById('product-price').value;
+                    product.image = document.getElementById('product-image').value;
+
+                    saveProducts(); 
+                    render
+                    
+                    renderProductList();
+                    
+                    // Reset form and form action
+                    addProductForm.reset();
+                    addProductForm.onsubmit = function(e) {
+                        e.preventDefault();
+                        
+                        const newProduct = {
+                            id: products.length + 1,
+                            title: document.getElementById('product-title').value,
+                            description: document.getElementById('product-description').value,
+                            price: document.getElementById('product-price').value,
+                            image: document.getElementById('product-image').value
+                        };
+                        
+                        products.push(newProduct);
+                        renderProductList();
+                        
+                        addProductForm.reset();
+                        
+                        productSuccessMessage.style.display = 'block';
+                        setTimeout(() => {
+                            productSuccessMessage.style.display = 'none';
+                        }, 3000);
+                    };
+                    
+                    // Show success message
+                    productSuccessMessage.textContent = 'Product updated successfully!';
+                    productSuccessMessage.style.display = 'block';
+                    setTimeout(() => {
+                        productSuccessMessage.style.display = 'none';
+                        productSuccessMessage.textContent = 'Product added successfully!';
+                    }, 3000);
+                };
+            }
+        }
+        
+        // Delete product
+        function deleteProduct(id) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                products = products.filter(p => p.id !== id);
+                renderProductList();
+                
+                // Show success message
+                productSuccessMessage.textContent = 'Product deleted successfully!';
+                productSuccessMessage.style.display = 'block';
+                setTimeout(() => {
+                    productSuccessMessage.style.display = 'none';
+                    productSuccessMessage.textContent = 'Product added successfully!';
+                }, 3000);
+            }
+        }
+        
+        // Edit blog
+        function editBlog(id) {
+            const blog = blogs.find(b => b.id === id);
+            if (blog) {
+                document.getElementById('blog-title').value = blog.title;
+                document.getElementById('blog-content').value = blog.content;
+                document.getElementById('blog-image').value = blog.image;
+                
+                // Change form action to update
+                addBlogForm.onsubmit = function(e) {
+                    e.preventDefault();
+                    
+                    blog.title = document.getElementById('blog-title').value;
+                    blog.content = document.getElementById('blog-content').value;
+                    blog.image = document.getElementById('blog-image').value;
+                    
+                    renderBlogList();
+                    
+                    // Reset form and form action
+                    addBlogForm.reset();
+                    addBlogForm.onsubmit = function(e) {
+                        e.preventDefault();
+                        
+                        const newBlog = {
+                            id: blogs.length + 1,
+                            title: document.getElementById('blog-title').value,
+                            content: document.getElementById('blog-content').value,
+                            image: document.getElementById('blog-image').value
+                        };
+                        
+                        blogs.push(newBlog);
+                        renderBlogList();
+                        
+                        addBlogForm.reset();
+                        
+                        blogSuccessMessage.style.display = 'block';
+                        setTimeout(() => {
+                            blogSuccessMessage.style.display = 'none';
+                        }, 3000);
+                    };
+                    
+                    // Show success message
+                    blogSuccessMessage.textContent = 'Blog post updated successfully!';
+                    blogSuccessMessage.style.display = 'block';
+                    setTimeout(() => {
+                        blogSuccessMessage.style.display = 'none';
+                        blogSuccessMessage.textContent = 'Blog post added successfully!';
+                    }, 3000);
+                };
+            }
+        }
+        
+        // Delete blog
+        function deleteBlog(id) {
+            if (confirm('Are you sure you want to delete this blog post?')) {
+                blogs = blogs.filter(b => b.id !== id);
+                renderBlogList();
+                
+                // Show success message
+                blogSuccessMessage.textContent = 'Blog post deleted successfully!';
+                blogSuccessMessage.style.display = 'block';
+                setTimeout(() => {
+                    blogSuccessMessage.style.display = 'none';
+                    blogSuccessMessage.textContent = 'Blog post added successfully!';
+                }, 3000);
+            }
+        }
+
+        // Save products to localStorage
+        function saveProducts() {
+            localStorage.setItem('mbaRatnaProducts', JSON.stringify(products));
+        }
+
+        // Save blogs to localStorage
+        function saveBlogs() {
+            localStorage.setItem('mbaRatnaBlogs', JSON.stringify(blogs));
+        }
+    </script>
+</body>
+</html>

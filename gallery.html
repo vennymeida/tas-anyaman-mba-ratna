@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Tas Anyaman Mba Ratna</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/ic_website.png" alt="Tas Anyaman Mba Ratna Logo">
+                <h1 id="site-title">Tas Anyaman Mba Ratna</h1>
+            </div>
+            <div class="mobile-menu" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="language-selector" id="language-selector">
+                <img src="images/flag-id.png" alt="Bahasa Indonesia" class="flag" id="current-flag" data-lang="id">
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="products.html" id="nav-products">Products</a></li>
+                    <li><a href="gallery.html" id="nav-gallery" class="active">Gallery</a></li>
+                    <li><a href="blog.html" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                    <li><a href="faq.html" id="nav-faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html" id="mobile-nav-home">Home</a></li>
+                <li><a href="about.html" id="mobile-nav-about">About</a></li>
+                <li><a href="products.html" id="mobile-nav-products">Products</a></li>
+                <li><a href="gallery.html" id="mobile-nav-gallery" class="active">Gallery</a></li>
+                <li><a href="blog.html" id="mobile-nav-blog">Blog</a></li>
+                <li><a href="contact.html" id="mobile-nav-contact">Contact</a></li>
+                <li><a href="faq.html" id="mobile-nav-faq">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h2 id="gallery-page-title">Our Gallery</h2>
+            <p id="gallery-page-subtitle">Explore our craftsmanship through images of our products and process</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Gallery</button>
+                <button class="filter-btn" data-filter="products">Products</button>
+                <button class="filter-btn" data-filter="process">Process</button>
+                <button class="filter-btn" data-filter="artisans">Artisans</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Products -->
+                <div class="gallery-item" data-category="products">
+                    <a href="images/Anyaman 1.jpg" data-lightbox="gallery" data-title="Traditional Woven Basket">
+                        <img src="images/Anyaman 1.jpg" alt="Traditional Woven Basket">
+                        <div class="gallery-overlay">
+                            <span>Traditional Woven Basket</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="products">
+                    <a href="images/Anyaman 2.jpg" data-lightbox="gallery" data-title="Decorative Wall Hanging">
+                        <img src="images/Anyaman 2.jpg" alt="Decorative Wall Hanging">
+                        <div class="gallery-overlay">
+                            <span>Decorative Wall Hanging</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="products">
+                    <a href="images/Anyaman 3.jpg" data-lightbox="gallery" data-title="Handwoven Tote Bag">
+                        <img src="images/Anyaman 3.jpg" alt="Handwoven Tote Bag">
+                        <div class="gallery-overlay">
+                            <span>Handwoven Tote Bag</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="products">
+                    <a href="images/Anyaman 4.jpg" data-lightbox="gallery" data-title="Woven Table Runner">
+                        <img src="images/Anyaman 4.jpg" alt="Woven Table Runner">
+                        <div class="gallery-overlay">
+                            <span>Woven Table Runner</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Process -->
+                <div class="gallery-item" data-category="process">
+                    <a href="images/Process 1.png" data-lightbox="gallery" data-title="Weaving Process">
+                        <img src="images/Process 1.png" alt="Weaving Process">
+                        <div class="gallery-overlay">
+                            <span>Weaving Process</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="process">
+                    <a href="images/Process 2.png" data-lightbox="gallery" data-title="Artisan at Work">
+                        <img src="images/Process 2.png" alt="Artisan at Work">
+                        <div class="gallery-overlay">
+                            <span>Artisan at Work</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="process">
+                    <a href="images/Process 3.png" data-lightbox="gallery" data-title="Finished Products">
+                        <img src="images/Process 3.png" alt="Finished Products">
+                        <div class="gallery-overlay">
+                            <span>Finished Products</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="process">
+                    <a href="images/Process 4.png" data-lightbox="gallery" data-title="Material Preparation">
+                        <img src="images/Process 4.png" alt="Material Preparation">
+                        <div class="gallery-overlay">
+                            <span>Material Preparation</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Artisans -->
+                <div class="gallery-item" data-category="artisans">
+                    <a href="images/Process 5.png" data-lightbox="gallery" data-title="Our Workshop">
+                        <img src="images/Process 5.png" alt="Our Workshop">
+                        <div class="gallery-overlay">
+                            <span>Our Workshop</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="artisans">
+                    <a href="images/Process 6.png" data-lightbox="gallery" data-title="Product Display">
+                        <img src="images/Process 6.png" alt="Product Display">
+                        <div class="gallery-overlay">
+                            <span>Product Display</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="artisans">
+                    <a href="images/Weaving.png" data-lightbox="gallery" data-title="Traditional Weaving Techniques">
+                        <img src="images/Weaving.png" alt="Traditional Weaving Techniques">
+                        <div class="gallery-overlay">
+                            <span>Traditional Weaving Techniques</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 id="footer-about-title">About Tas Anyaman Mba Ratna</h3>
+                    <p id="footer-about-description">Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving crafts while providing sustainable livelihoods for skilled artisans. Each product tells a story of cultural heritage and exceptional craftsmanship.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fas fa-phone"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 id="footer-quick-links-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" id="footer-link-home">Home</a></li>
+                        <li><a href="about.html" id="footer-link-about">About</a></li>
+                        <li><a href="products.html" id="footer-link-products">Products</a></li>
+                        <li><a href="gallery.html" id="footer-link-gallery">Gallery</a></li>
+                        <li><a href="blog.html" id="footer-link-blog">Blog</a></li>
+                        <li><a href="contact.html" id="footer-link-contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-address" style="text-align: center; margin: 20px 0; font-size: 0.9em;">
+                <a href="https://g.co/kgs/EbaZ8un" target="_blank" style="color: #666;">
+                    <p id="footer-left">View Location on Google Maps</p>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-rights">&copy; 2025 Tas Anyaman Mba Ratna. All Rights Reserved.</p>
+                <a href="admin.html" style="color: #666; margin-left: 10px; font-size: 0.9em;">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

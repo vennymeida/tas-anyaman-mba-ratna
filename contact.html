@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tas Anyaman Mba Ratna</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/ic_website.png" alt="Tas Anyaman Mba Ratna Logo">
+                <h1 id="site-title">Tas Anyaman Mba Ratna</h1>
+            </div>
+            <div class="mobile-menu" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="language-selector" id="language-selector">
+                <img src="images/flag-id.png" alt="Bahasa Indonesia" class="flag" id="current-flag" data-lang="id">
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" id="nav-home">Home</a></li>
+                    <li><a href="about.html" id="nav-about">About</a></li>
+                    <li><a href="products.html" id="nav-products">Products</a></li>
+                    <li><a href="gallery.html" id="nav-gallery">Gallery</a></li>
+                    <li><a href="blog.html" id="nav-blog">Blog</a></li>
+                    <li><a href="contact.html" id="nav-contact" class="active">Contact</a></li>
+                    <li><a href="faq.html" id="nav-faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html" id="mobile-nav-home">Home</a></li>
+                <li><a href="about.html" id="mobile-nav-about">About</a></li>
+                <li><a href="products.html" id="mobile-nav-products">Products</a></li>
+                <li><a href="gallery.html" id="mobile-nav-gallery">Gallery</a></li>
+                <li><a href="blog.html" id="mobile-nav-blog">Blog</a></li>
+                <li><a href="contact.html" id="mobile-nav-contact" class="active">Contact</a></li>
+                <li><a href="faq.html" id="mobile-nav-faq">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h2 id="contact-page-title">Contact Us</h2>
+            <p id="contact-page-subtitle">We'd love to hear from you. Get in touch with us!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 id="contact-get-in-touch">Get In Touch</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 id="contact-address-title">Address</h4>
+                            <p id="contact-address">Front of KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kediri Regency<br>East Java 64175</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 id="contact-phone-title">Whatsapp</h4>
+                            <p id="contact-phone">0856-0898-0005</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <div>
+                            <h4 id="contact-tiktok-title">TikTok</h4>
+                            <p id="contact-tiktok">@tas_anyaman_ratna</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4 id="contact-instagram-title">Instagram</h4>
+                            <p id="contact-instagram">@Tas_anyaman_mba_ratna</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 id="contact-form-title">Send Us a Message</h3>
+                    <form id="contactForm" action="send_email.php" method="POST">
+                        <div class="form-group">
+                            <label for="name" id="label-name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" id="label-email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" id="label-subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" id="label-message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div id="form-status"></div>
+                        <button type="submit" class="btn" id="btn-send-message">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="location-title">Our Location</h2>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7046249978364!2d112.1417!3d-7.8148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78574211111111%3A0x3a3a3a3a3a3a3a3a!2sKUD%20Sri%20Among%20Tani!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 id="footer-about-title">About Tas Anyaman Mba Ratna</h3>
+                    <p id="footer-about-description">Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving crafts while providing sustainable livelihoods for skilled artisans. Each product tells a story of cultural heritage and exceptional craftsmanship.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fas fa-phone"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 id="footer-quick-links-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" id="footer-link-home">Home</a></li>
+                        <li><a href="about.html" id="footer-link-about">About</a></li>
+                        <li><a href="products.html" id="footer-link-products">Products</a></li>
+                        <li><a href="gallery.html" id="footer-link-gallery">Gallery</a></li>
+                        <li><a href="blog.html" id="footer-link-blog">Blog</a></li>
+                        <li><a href="contact.html" id="footer-link-contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-address" style="text-align: center; margin: 20px 0; font-size: 0.9em;">
+                <a href="https://g.co/kgs/EbaZ8un" target="_blank" style="color: #666;">
+                    <p id="footer-left">View Location on Google Maps</p>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-rights">&copy; 2025 Tas Anyaman Mba Ratna. All Rights Reserved.</p>
+                <a href="admin.html" style="color: #666; margin-left: 10px; font-size: 0.9em;">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <!-- Contact Form JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('form-status');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading message
+                    formStatus.innerHTML = '<p class="sending-message">Sending message...</p>';
+                    formStatus.style.display = 'block';
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    
+                    // Send form data using fetch API
+                    fetch('send_email.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success message
+                            formStatus.innerHTML = `<p class="success-message">${data.message}</p>`;
+                            // Reset form
+                            contactForm.reset();
+                        } else {
+                            // Show error message
+                            formStatus.innerHTML = `<p class="error-message">${data.message}</p>`;
+                        }
+                    })
+                    .catch(error => {
+                        // Show error message
+                        formStatus.innerHTML = '<p class="error-message">An error occurred. Please try again later.</p>';
+                        console.error('Error:', error);
+                    });
+                });
+            }
+        });
+    </script>
+    <style>
+        /* Form Status Message Styles */
+        #form-status {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .sending-message {
+            background-color: #f5f9ed;
+            color: #3a3a3a;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .success-message {
+            background-color: #d7e9b9;
+            color: #3a3a3a;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</body>
+</html>
+</body>
+</html>
