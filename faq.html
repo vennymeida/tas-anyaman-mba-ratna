@@ -351,6 +351,79 @@
                 }
             }
         });
+
+        // Bilingual FAQ data
+        const faqData = [
+            {
+                q_en: 'How long does it take to ship?',
+                a_en: 'Shipping usually takes approximately 3-5 business days for domestic shipping and 7-14 business days for international shipping.',
+                q_id: 'Berapa lama waktu pengiriman?',
+                a_id: 'Pengiriman biasanya memakan waktu sekitar 3-5 hari kerja untuk pengiriman domestik dan 7-14 hari kerja untuk pengiriman internasional.'
+            },
+            {
+                q_en: 'How do I track my order status?',
+                a_en: 'You can track your order via your confirmation email or WhatsApp.',
+                q_id: 'Bagaimana cara melacak status pesanan saya?',
+                a_id: 'Anda dapat melacak pesanan Anda melalui email konfirmasi atau WhatsApp.'
+            },
+            {
+                q_en: 'How do I return or exchange a product?',
+                a_en: 'Please contact us via email or phone for information on returning or exchanging products.',
+                q_id: 'Bagaimana cara mengembalikan atau menukar produk?',
+                a_id: 'Silakan hubungi kami melalui email atau telepon untuk informasi tentang pengembalian atau penukaran produk.'
+            },
+            {
+                q_en: 'How do I cancel an order?',
+                a_en: 'You can cancel your order before it is processed. Please contact us for more information.',
+                q_id: 'Bagaimana cara membatalkan pesanan?',
+                a_id: 'Anda dapat membatalkan pesanan Anda sebelum diproses. Silakan hubungi kami untuk informasi lebih lanjut.'
+            },
+            {
+                q_en: 'How long is the pre-order item?',
+                a_en: 'The pre-order time usually depends on the product and sales (quantity of products and shipping).',
+                q_id: 'Berapa lama waktu pre-order?',
+                a_id: 'Waktu pre-order biasanya tergantung pada produk dan penjualan (jumlah produk dan pengiriman).'
+            },
+            {
+                q_en: 'What is the minimum wholesale order?',
+                a_en: 'There is no minimum wholesale purchase.',
+                q_id: 'Berapa minimum pembelian grosir?',
+                a_id: 'Tidak ada minimum pembelian grosir.'
+            },
+            {
+                q_en: 'What payment methods are accepted?',
+                a_en: 'Payment can be made by transfer to a BRI bank account.',
+                q_id: 'Metode pembayaran apa yang diterima?',
+                a_id: 'Pembayaran dapat dilakukan dengan transfer ke rekening bank BRI.'
+            },
+            {
+                q_en: 'Can I pay Cash On Delivery/COD?',
+                a_en: 'COD payments are currently not available.',
+                q_id: 'Bisakah saya membayar dengan COD?',
+                a_id: 'Pembayaran COD saat ini tidak tersedia.'
+            }
+        ];
+
+        function updateFaqLanguage(lang) {
+            for (let i = 0; i < faqData.length; i++) {
+                const q = document.getElementById(`faq-q${i+1}`);
+                const a = document.getElementById(`faq-a${i+1}`);
+                if (q) q.textContent = lang === 'id' ? faqData[i].q_id : faqData[i].q_en;
+                if (a) a.textContent = lang === 'id' ? faqData[i].a_id : faqData[i].a_en;
+            }
+            // FAQ title, subtitle, intro
+            document.getElementById('faq-title').textContent = lang === 'id' ? 'Pertanyaan yang Sering Diajukan' : 'Frequently Asked Questions';
+            document.getElementById('faq-subtitle').textContent = lang === 'id' ? 'Temukan jawaban untuk pertanyaan umum tentang produk dan layanan kami' : 'Find answers to common questions about our products and services';
+            document.getElementById('faq-intro-text').textContent = lang === 'id'
+                ? 'Kami telah menyusun daftar pertanyaan yang sering diajukan untuk membantu Anda menemukan informasi yang Anda butuhkan. Jika Anda tidak dapat menemukan jawaban atas pertanyaan Anda, jangan ragu untuk menghubungi kami.'
+                : "We've compiled a list of frequently asked questions to help you find the information you need. If you can't find the answer to your question, please don't hesitate to contact us.";
+            // Contact CTA
+            document.getElementById('contact-cta-title').textContent = lang === 'id' ? 'Masih punya pertanyaan?' : 'Still have questions?';
+            document.getElementById('contact-cta-text').textContent = lang === 'id'
+                ? 'Kami siap membantu! Hubungi kami untuk informasi tambahan yang Anda butuhkan.'
+                : "We're here to help! Contact us for any additional information you may need.";
+            document.getElementById('contact-cta-btn').textContent = lang === 'id' ? 'Hubungi Kami' : 'Contact Us';
+        }
     </script>
 </body>
 </html>

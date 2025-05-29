@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.gallery-filter .filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const videoSection = document.querySelector('.video-section');
     
     // Filter gallery items
     filterButtons.forEach(button => {
@@ -13,6 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get filter value
             const filterValue = this.getAttribute('data-filter');
+            
+            // Show/hide video section
+            if (videoSection) {
+                videoSection.style.display = filterValue === 'videos' || filterValue === 'all' ? 'block' : 'none';
+            }
             
             // Show/hide gallery items based on filter
             galleryItems.forEach(item => {

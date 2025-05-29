@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "How To Care for a Hand-Woven Bag",
             image: "images/article1.webp",
             date: "May 15, 2025",
-            author: "Mba Ratna",
+            author: "Aprilia Tri Anggraeni",
             content: "blog-detail.html" // This is the default content already in the HTML
         },
         {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Recommended Shopping Bags to Replace Plastic Bags",
             image: "images/article2.jpg",
             date: "May 2, 2025",
-            author: "Dwi Ratnasari",
+            author: "Aprilia Tri Anggraeni",
             content: `
                 <h2>Article 2: Recommended Shopping Bags to Replace Plastic Bags</h2>
                 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Cheap and Functional Wedding Souvenir Bag Recommendations",
             image: "images/article3.jpg",
             date: "April 20, 2025",
-            author: "Mba Ratna",
+            author: "Aprilia Tri Anggraeni",
             content: `
                 <h2>Article 3: Cheap and Functional Wedding Souvenir Bag Recommendations</h2>
                 
