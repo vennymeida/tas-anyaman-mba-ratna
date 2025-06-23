@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentFlag.setAttribute('data-lang', 'id');
                 setIndonesianLanguage();
                 updateGalleryPrices('id');
-                if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
+                // Add delay for products page to ensure DOM is ready
+                setTimeout(() => {
+                    if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
+                }, 50);
                 if (typeof updateBlogLanguage === 'function') updateBlogLanguage('id');
                 if (typeof updateFaqLanguage === 'function') updateFaqLanguage('id');
             } else {
@@ -54,7 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentFlag.setAttribute('data-lang', 'en');
                 setEnglishLanguage();
                 updateGalleryPrices('en');
-                if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
+                // Add delay for products page to ensure DOM is ready
+                setTimeout(() => {
+                    if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
+                }, 50);
                 if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
                 if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
             }
@@ -192,6 +198,9 @@ function setIndonesianLanguage() {
         changeElementText('hero-button', 'Jelajahi Koleksi Kami');
         // Update gallery prices
         updateGalleryPrices('id');
+        // Featured products section title
+        changeElementText('featured-products-title', 'Produk Unggulan');
+        changeElementText('featured-products-subtitle', 'Temukan koleksi kerajinan anyaman tradisional buatan tangan kami');
         // Featured products (index)
         changeElementText('featured-title-1', 'Tas Souvenir');
         changeElementText('featured-desc-1', 'Tas souvenir anyaman custom ini cocok untuk pernikahan. Permintaan gratis! Anda bisa memilih kombinasi warna sendiri.');
@@ -205,6 +214,35 @@ function setIndonesianLanguage() {
         changeElementText('featured-price-3', 'Rp 5.000 - Rp 10.000');
         // View all products button
         changeElementText('view-all-products-button', 'Lihat Semua Produk');
+        // About button (Learn More)
+        changeElementText('about-button', 'Pelajari Lebih Lanjut');
+        // Contact section on index page
+        changeElementText('contact-title', 'Hubungi Kami');
+        changeElementText('home-contact-get-in-touch', 'Hubungi Kami');
+        changeElementText('contact-address-title', 'Alamat');
+        changeElementHTML('contact-address', 'Depan KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kabupaten Kediri<br>Jawa Timur 64175');
+        changeElementText('contact-phone-title', 'Telepon');
+        changeElementText('contact-phone', '(62) 856-0898-0005');
+        changeElementText('contact-tiktok-title', 'TikTok');
+        changeElementText('contact-tiktok', '@tas_anyaman_mba_ratna');
+        changeElementText('contact-instagram-title', 'Instagram');
+        changeElementText('contact-instagram', '@tas_anyaman_ratna');
+        changeElementText('contact-hours-title', 'Jam Buka');
+        changeElementHTML('contact-hours', 'Senin - Jumat: 9am - 5pm<br>Sabtu: 10am - 4pm<br>Minggu: Tutup');
+        changeElementText('contact-form-title', 'Kirim Pesan kepada Kami');
+        // Footer
+        changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
+        changeElementText('footer-quick-links-title', 'Tautan Cepat');
+        changeElementText('footer-link-home', 'Beranda');
+        changeElementText('footer-link-about', 'Tentang Kami');
+        changeElementText('footer-link-products', 'Produk');
+        changeElementText('footer-link-gallery', 'Galeri');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Kontak');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. Semua Hak Dilindungi.');
+        changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
         if (typeof updateFeaturedProductsLanguage === 'function') updateFeaturedProductsLanguage('id');
     } else if (page === 'about.html') {
         changeElementText('about-page-title', 'Tentang Kami');
@@ -239,14 +277,70 @@ function setIndonesianLanguage() {
         changeElementText('process-4-desc', 'Setiap produk diselesaikan dengan cermat dengan memperhatikan detail, memastikan daya tahan dan daya tarik estetika.');
         changeElementText('process-5-title', 'Pemeriksaan Kualitas');
         changeElementText('process-5-desc', 'Setiap produk menjalani pemeriksaan kualitas menyeluruh untuk memastikan memenuhi standar tinggi kami sebelum ditawarkan kepada pelanggan.');
+        // Footer
+        changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
+        changeElementText('footer-quick-links-title', 'Tautan Cepat');
+        changeElementText('footer-link-home', 'Beranda');
+        changeElementText('footer-link-about', 'Tentang Kami');
+        changeElementText('footer-link-products', 'Produk');
+        changeElementText('footer-link-gallery', 'Galeri');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Kontak');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. Semua Hak Dilindungi.');
+        changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
     } else if (page === 'products.html') {
-        changeElementText('products-title', 'Produk Kami');
-        changeElementText('products-subtitle', 'Jelajahi koleksi tas anyaman tradisional buatan tangan kami');
+        changeElementText('products-page-title', 'Produk Kami');
+        changeElementText('products-page-subtitle', 'Jelajahi koleksi tas anyaman tradisional buatan tangan kami');
+        // All Products button
+        changeElementText('all-products-btn', 'Semua Produk');
+        // Modal buy button
+        changeElementText('modal-buy-button', 'Beli Sekarang');
         // Product prices
         convertFeaturedProductPrices('id');
-        if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
+        // Delay product language update to ensure products are loaded
+        setTimeout(() => {
+            if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
+        }, 100);
+        // Footer
+        changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
+        changeElementText('footer-quick-links-title', 'Tautan Cepat');
+        changeElementText('footer-link-home', 'Beranda');
+        changeElementText('footer-link-about', 'Tentang Kami');
+        changeElementText('footer-link-products', 'Produk');
+        changeElementText('footer-link-gallery', 'Galeri');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Kontak');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. Semua Hak Dilindungi.');
+        changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
     } else if (page === 'gallery.html') {
-        changeElementText('gallery-title', 'Galeri');
+        changeElementText('gallery-page-title', 'Galeri Kami');
+        changeElementText('gallery-page-subtitle', 'Jelajahi keahlian kami melalui gambar produk dan proses kami');
+        changeElementText('gallery-videos-title', 'Video Kami');
+        changeElementText('promo-video-title', 'Video Promosi');
+        changeElementText('promo-video-subtitle', 'Tas Anyaman Premium Mba Ratna');
+        changeElementText('promo-video-desc', 'Unik, stylish, dan terjangkau! Terbuat dari plastik sintetis berkualitas tinggi, produk ini ringan dan tahan lama. Bisa kustomisasi warna dan desain sesuai gaya Anda.');
+        changeElementText('promo-video-price', '💸 Harga: Rp 55.000 – Rp 75.000');
+        changeElementText('promo-video-note', 'Cocok untuk tampilan harian, OOTD, atau hadiah spesial!');
+        changeElementText('manufacturing-video-title', 'Video Produksi');
+        changeElementText('manufacturing-video-subtitle', 'Proses Produksi Tas Anyaman Mba Ratna');
+        changeElementText('manufacturing-video-desc', 'Dari memotong plastik, menyusun, hingga proses anyaman oleh 4-5 pengrajin kreatif. Dalam sehari, bisa diproduksi 50-75 tas dengan berbagai model. Pelanggan bisa request warna, ukuran, dan aksesoris. Hasilnya tas yang kuat, estetik, dan multifungsi—cocok untuk souvenir acara atau fashion premium.');
+        // Footer
+        changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
+        changeElementText('footer-quick-links-title', 'Tautan Cepat');
+        changeElementText('footer-link-home', 'Beranda');
+        changeElementText('footer-link-about', 'Tentang Kami');
+        changeElementText('footer-link-products', 'Produk');
+        changeElementText('footer-link-gallery', 'Galeri');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Kontak');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. Semua Hak Dilindungi.');
+        changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
     } else if (page === 'blog.html') {
         changeElementText('blog-page-title', 'Blog Kami');
         changeElementText('blog-page-subtitle', 'Temukan tips, cerita, dan wawasan tentang kerajinan anyaman tradisional');
@@ -255,10 +349,46 @@ function setIndonesianLanguage() {
         changeElementText('contact-page-title', 'Hubungi Kami');
         changeElementText('contact-page-subtitle', 'Kami senang mendengar dari Anda. Hubungi kami!');
         changeElementText('location-title', 'Lokasi Kami');
+        changeElementText('contact-get-in-touch', 'Hubungi Kami');
+        changeElementText('contact-page-address-title', 'Alamat');
+        changeElementHTML('contact-page-address', 'Depan KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kabupaten Kediri<br>Jawa Timur 64175');
+        changeElementText('contact-page-phone-title', 'Whatsapp');
+        changeElementText('contact-page-phone', '0856-0898-0005');
+        changeElementText('contact-page-tiktok-title', 'TikTok');
+        changeElementText('contact-page-tiktok', '@tas_anyaman_ratna');
+        changeElementText('contact-page-instagram-title', 'Instagram');
+        changeElementText('contact-page-instagram', '@Tas_anyaman_mba_ratna');
+        changeElementText('contact-page-form-title', 'Kirim Pesan kepada Kami');
+        // Footer
+        changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
+        changeElementText('footer-quick-links-title', 'Tautan Cepat');
+        changeElementText('footer-link-home', 'Beranda');
+        changeElementText('footer-link-about', 'Tentang Kami');
+        changeElementText('footer-link-products', 'Produk');
+        changeElementText('footer-link-gallery', 'Galeri');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Kontak');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. Semua Hak Dilindungi.');
+        changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
     } else if (page === 'faq.html') {
         changeElementText('faq-title', 'Pertanyaan yang Sering Diajukan');
         changeElementText('faq-subtitle', 'Temukan jawaban atas pertanyaan umum tentang produk dan layanan kami');
         if (typeof updateFaqLanguage === 'function') updateFaqLanguage('id');
+        // Footer
+        changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
+        changeElementText('footer-quick-links-title', 'Tautan Cepat');
+        changeElementText('footer-link-home', 'Beranda');
+        changeElementText('footer-link-about', 'Tentang Kami');
+        changeElementText('footer-link-products', 'Produk');
+        changeElementText('footer-link-gallery', 'Galeri');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Kontak');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. Semua Hak Dilindungi.');
+        changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
     }
     
     // Gallery Section
@@ -269,19 +399,7 @@ function setIndonesianLanguage() {
     changeElementText('gallery-item-5', 'Workshop Kami');
     changeElementText('gallery-item-6', 'Tampilan Produk');
     
-    // Contact Section
-    changeElementText('contact-get-in-touch', 'Hubungi Kami');
-    changeElementText('contact-address-title', 'Alamat');
-    changeElementHTML('contact-address', 'Depan KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kabupaten Kediri<br>Jawa Timur 64175');
-    changeElementText('contact-phone-title', 'Telepon');
-    changeElementText('contact-phone', '(62) 856-0898-0005');
-    changeElementText('contact-tiktok-title', 'TikTok');
-    changeElementText('contact-tiktok', '@tas_anyaman_mba_ratna');
-    changeElementText('contact-instagram-title', 'Instagram');
-    changeElementText('contact-instagram', '@tas_anyaman_ratna');
-    changeElementText('contact-hours-title', 'Jam Buka');
-    changeElementHTML('contact-hours', 'Senin - Jumat: 9am - 5pm<br>Sabtu: 10am - 4pm<br>Minggu: Tutup');
-    changeElementText('contact-form-title', 'Kirim Pesan kepada Kami');
+    // Form labels (common across pages)
     changeElementText('label-name', 'Nama Anda');
     changeElementText('label-email', 'Email Anda');
     changeElementText('label-subject', 'Subjek');
@@ -350,6 +468,9 @@ function setEnglishLanguage() {
         changeElementText('hero-button', 'Explore Our Collection');
         // Update gallery prices
         updateGalleryPrices('en');
+        // Featured products section title
+        changeElementText('featured-products-title', 'Featured Products');
+        changeElementText('featured-products-subtitle', 'Discover our handcrafted collection of traditional woven items');
         // Featured products (index)
         changeElementText('featured-title-1', 'Souvenir Bag');
         changeElementText('featured-desc-1', 'This custom-woven souvenir bag is perfect for weddings. Free request! You can choose a combination of colors.');
@@ -363,6 +484,35 @@ function setEnglishLanguage() {
         changeElementText('featured-price-3', 'Rp 5.000 - Rp 10.000');
         // View all products button
         changeElementText('view-all-products-button', 'View All Products');
+        // About button (Learn More)
+        changeElementText('about-button', 'Learn More');
+        // Contact section on index page
+        changeElementText('contact-title', 'Contact Us');
+        changeElementText('home-contact-get-in-touch', 'Get In Touch');
+        changeElementText('contact-address-title', 'Address');
+        changeElementHTML('contact-address', 'Front of KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kediri Regency<br>East Java 64175');
+        changeElementText('contact-phone-title', 'Phone');
+        changeElementText('contact-phone', '(62) 856-0898-0005');
+        changeElementText('contact-tiktok-title', 'TikTok');
+        changeElementText('contact-tiktok', '@tas_anyaman_mba_ratna');
+        changeElementText('contact-instagram-title', 'Instagram');
+        changeElementText('contact-instagram', '@tas_anyaman_ratna');
+        changeElementText('contact-hours-title', 'Open Hours');
+        changeElementHTML('contact-hours', 'Monday - Friday: 9am - 5pm<br>Saturday: 10am - 4pm<br>Sunday: Closed');
+        changeElementText('contact-form-title', 'Send Us a Message');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
         if (typeof updateFeaturedProductsLanguage === 'function') updateFeaturedProductsLanguage('en');
     } else if (page === 'about.html') {
         changeElementText('about-page-title', 'About Us');
@@ -397,12 +547,45 @@ function setEnglishLanguage() {
         changeElementText('process-4-desc', 'Each product is carefully finished with attention to detail, ensuring durability and aesthetic appeal.');
         changeElementText('process-5-title', 'Quality Check');
         changeElementText('process-5-desc', 'Every product undergoes a thorough quality check to ensure it meets our high standards before being offered to customers.');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'products.html') {
-        changeElementText('products-title', 'Our Products');
-        changeElementText('products-subtitle', 'Explore our collection of handcrafted woven bags and accessories');
+        changeElementText('products-page-title', 'Our Products');
+        changeElementText('products-page-subtitle', 'Explore our collection of handcrafted woven bags and accessories');
+        // All Products button
+        changeElementText('all-products-btn', 'All Products');
+        // Modal buy button
+        changeElementText('modal-buy-button', 'Buy Now');
         // Update gallery prices only
         updateGalleryPrices('en');
-        if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
+        // Delay product language update to ensure products are loaded
+        setTimeout(() => {
+            if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
+        }, 100);
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'gallery.html') {
         changeElementText('gallery-page-title', 'Our Gallery');
         changeElementText('gallery-page-subtitle', 'Explore our craftsmanship through images of our products and process');
@@ -415,18 +598,93 @@ function setEnglishLanguage() {
         changeElementText('manufacturing-video-title', 'Manufacturing Video');
         changeElementText('manufacturing-video-subtitle', "Mba Ratna's Woven Bag Production Process");
         changeElementText('manufacturing-video-desc', 'From cutting the plastic, arranging, to the weaving process by 4-5 creative craftsmen. In one day, 50-75 bags with various models can be produced. Customers can request colors, sizes, and accessories. The result is a strong, aesthetic, and multifunctional bag—suitable for event souvenirs or premium fashion.');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'blog.html') {
         changeElementText('blog-page-title', 'Our Blog');
         changeElementText('blog-page-subtitle', 'Discover tips, stories, and insights about traditional weaving crafts');
         if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'contact.html') {
         changeElementText('contact-page-title', 'Contact Us');
         changeElementText('contact-page-subtitle', "We'd love to hear from you. Get in touch with us!");
         changeElementText('location-title', 'Our Location');
+        changeElementText('contact-get-in-touch', 'Get In Touch');
+        changeElementText('contact-page-address-title', 'Address');
+        changeElementHTML('contact-page-address', 'Front of KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kediri Regency<br>East Java 64175');
+        changeElementText('contact-page-phone-title', 'Whatsapp');
+        changeElementText('contact-page-phone', '0856-0898-0005');
+        changeElementText('contact-page-tiktok-title', 'TikTok');
+        changeElementText('contact-page-tiktok', '@tas_anyaman_ratna');
+        changeElementText('contact-page-instagram-title', 'Instagram');
+        changeElementText('contact-page-instagram', '@Tas_anyaman_mba_ratna');
+        changeElementText('contact-page-form-title', 'Send Us a Message');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'faq.html') {
         changeElementText('faq-title', 'Frequently Asked Questions');
         changeElementText('faq-subtitle', 'Find answers to common questions about our products and services');
         if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
+        // Footer
+        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
+        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
+        changeElementText('footer-quick-links-title', 'Quick Links');
+        changeElementText('footer-link-home', 'Home');
+        changeElementText('footer-link-about', 'About');
+        changeElementText('footer-link-products', 'Products');
+        changeElementText('footer-link-gallery', 'Gallery');
+        changeElementText('footer-link-blog', 'Blog');
+        changeElementText('footer-link-contact', 'Contact');
+        changeElementText('footer-link-faq', 'FAQ');
+        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
+        changeElementText('footer-left', 'View Location on Google Maps');
     }
     
     // Gallery Section
@@ -437,24 +695,12 @@ function setEnglishLanguage() {
     changeElementText('gallery-item-5', 'Our Workshop');
     changeElementText('gallery-item-6', 'Product Display');
     
-    // Contact Section
-        changeElementText('contact-get-in-touch', 'Get In Touch');
-        changeElementText('contact-address-title', 'Address');
-        changeElementHTML('contact-address', 'Front of KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kediri Regency<br>East Java 64175');
-        changeElementText('contact-phone-title', 'Phone');
-    changeElementText('contact-phone', '(62) 856-0898-0005');
-        changeElementText('contact-tiktok-title', 'TikTok');
-    changeElementText('contact-tiktok', '@tas_anyaman_mba_ratna');
-        changeElementText('contact-instagram-title', 'Instagram');
-    changeElementText('contact-instagram', '@tas_anyaman_ratna');
-        changeElementText('contact-hours-title', 'Open Hours');
-        changeElementHTML('contact-hours', 'Monday - Friday: 9am - 5pm<br>Saturday: 10am - 4pm<br>Sunday: Closed');
-        changeElementText('contact-form-title', 'Send Us a Message');
-        changeElementText('label-name', 'Your Name');
-        changeElementText('label-email', 'Your Email');
-        changeElementText('label-subject', 'Subject');
-        changeElementText('label-message', 'Your Message');
-        changeElementText('btn-send-message', 'Send Message');
+    // Form labels (common across pages)
+    changeElementText('label-name', 'Your Name');
+    changeElementText('label-email', 'Your Email');
+    changeElementText('label-subject', 'Subject');
+    changeElementText('label-message', 'Your Message');
+    changeElementText('btn-send-message', 'Send Message');
     
     // Footer Section
     changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
@@ -518,5 +764,121 @@ function updateGalleryPrices(lang) {
         } else {
             changeElementText('promo-video-price', '💸 Price: Rp 55.000 – Rp 75.000');
         }
+    }
+}
+
+// FAQ Language Update Function
+function updateFaqLanguage(lang) {
+    if (lang === 'id') {
+        // Indonesian FAQ translations
+        changeElementText('faq-title', 'Pertanyaan yang Sering Diajukan');
+        changeElementText('faq-subtitle', 'Temukan jawaban atas pertanyaan umum tentang produk dan layanan kami');
+        changeElementText('faq-intro-text', 'Kami telah mengumpulkan daftar pertanyaan yang sering diajukan untuk membantu Anda menemukan informasi yang Anda butuhkan. Jika Anda tidak dapat menemukan jawaban atas pertanyaan Anda, jangan ragu untuk menghubungi kami.');
+        
+        // FAQ Questions and Answers
+        changeElementText('faq-q1', 'Berapa lama waktu pengiriman?');
+        changeElementText('faq-a1', 'Pengiriman biasanya memakan waktu sekitar 3-5 hari kerja untuk pengiriman domestik dan 7-14 hari kerja untuk pengiriman internasional.');
+        
+        changeElementText('faq-q2', 'Bagaimana cara melacak status pesanan saya?');
+        changeElementText('faq-a2', 'Anda dapat melacak pesanan Anda melalui email konfirmasi atau WhatsApp.');
+        
+        changeElementText('faq-q3', 'Bagaimana cara mengembalikan atau menukar produk?');
+        changeElementText('faq-a3', 'Silakan hubungi kami melalui email atau telepon untuk informasi tentang pengembalian atau penukaran produk.');
+        
+        changeElementText('faq-q4', 'Bagaimana cara membatalkan pesanan?');
+        changeElementText('faq-a4', 'Anda dapat membatalkan pesanan sebelum diproses. Silakan hubungi kami untuk informasi lebih lanjut.');
+        
+        changeElementText('faq-q5', 'Berapa lama waktu pre-order?');
+        changeElementText('faq-a5', 'Waktu pre-order biasanya tergantung pada produk dan penjualan (kuantitas produk dan pengiriman).');
+        
+        changeElementText('faq-q6', 'Berapa pesanan minimum untuk grosir?');
+        changeElementText('faq-a6', 'Tidak ada pembelian minimum untuk grosir.');
+        
+        changeElementText('faq-q7', 'Metode pembayaran apa yang diterima?');
+        changeElementText('faq-a7', 'Pembayaran dapat dilakukan dengan transfer ke rekening bank BRI.');
+        
+        changeElementText('faq-q8', 'Bisakah saya bayar Cash On Delivery/COD?');
+        changeElementText('faq-a8', 'Pembayaran COD saat ini tidak tersedia.');
+        
+        // Contact CTA
+        changeElementText('contact-cta-title', 'Masih ada pertanyaan?');
+        changeElementText('contact-cta-text', 'Kami di sini untuk membantu! Hubungi kami untuk informasi tambahan yang Anda butuhkan.');
+        changeElementText('contact-cta-btn', 'Hubungi Kami');
+    } else {
+        // English FAQ translations
+        changeElementText('faq-title', 'Frequently Asked Questions');
+        changeElementText('faq-subtitle', 'Find answers to common questions about our products and services');
+        changeElementText('faq-intro-text', "We've compiled a list of frequently asked questions to help you find the information you need. If you can't find the answer to your question, please don't hesitate to contact us.");
+        
+        // FAQ Questions and Answers
+        changeElementText('faq-q1', 'How long does it take to ship?');
+        changeElementText('faq-a1', 'Shipping usually takes approximately 3-5 business days for domestic shipping and 7-14 business days for international shipping.');
+        
+        changeElementText('faq-q2', 'How do I track my order status?');
+        changeElementText('faq-a2', 'You can track your order via your confirmation email or WhatsApp.');
+        
+        changeElementText('faq-q3', 'How do I return or exchange a product?');
+        changeElementText('faq-a3', 'Please contact us via email or phone for information on returning or exchanging products.');
+        
+        changeElementText('faq-q4', 'How do I cancel an order?');
+        changeElementText('faq-a4', 'You can cancel your order before it is processed. Please contact us for more information.');
+        
+        changeElementText('faq-q5', 'How long is the pre-order time?');
+        changeElementText('faq-a5', 'The pre-order time usually depends on the product and sales (quantity of products and shipping).');
+        
+        changeElementText('faq-q6', 'What is the minimum wholesale order?');
+        changeElementText('faq-a6', 'There is no minimum wholesale purchase.');
+        
+        changeElementText('faq-q7', 'What payment methods are accepted?');
+        changeElementText('faq-a7', 'Payment can be made by transfer to a BRI bank account.');
+        
+        changeElementText('faq-q8', 'Can I pay Cash On Delivery/COD?');
+        changeElementText('faq-a8', 'COD payments are currently not available.');
+        
+        // Contact CTA
+        changeElementText('contact-cta-title', 'Still have questions?');
+        changeElementText('contact-cta-text', 'We\'re here to help! Contact us for any additional information you may need.');
+        changeElementText('contact-cta-btn', 'Contact Us');
+    }
+}
+
+// Blog Language Update Function
+function updateBlogLanguage(lang) {
+    // Blog data
+    const blogData = [
+        {
+            title_en: 'How To Care for a Hand-Woven Bag',
+            excerpt_en: 'Learn how to properly maintain and care for your handwoven bags to ensure they last for years to come.',
+            date_en: 'May 15, 2025',
+            title_id: 'Cara Merawat Tas Anyaman',
+            excerpt_id: 'Pelajari cara merawat dan menjaga tas anyaman Anda agar tahan lama dan awet.',
+            date_id: '15 Mei 2025'
+        },
+        {
+            title_en: 'Recommended Shopping Bags to Replace Plastic Bags',
+            excerpt_en: 'Currently, the use of plastic bags in several shopping centers has been banned by the government.',
+            date_en: 'May 2, 2025',
+            title_id: 'Rekomendasi Tas Belanja Pengganti Kantong Plastik',
+            excerpt_id: 'Saat ini, penggunaan kantong plastik di beberapa pusat perbelanjaan telah dilarang oleh pemerintah.',
+            date_id: '2 Mei 2025'
+        },
+        {
+            title_en: 'Cheap and Functional Wedding Souvenir Bag Recommendations',
+            excerpt_en: 'Wedding souvenirs are not just souvenirs, but also one of the most important factors that will give a deep impression to the guests',
+            date_en: 'April 20, 2025',
+            title_id: 'Rekomendasi Tas Souvenir Pernikahan Murah dan Fungsional',
+            excerpt_id: 'Souvenir pernikahan bukan hanya sekadar oleh-oleh, tetapi juga salah satu faktor penting yang akan memberikan kesan mendalam bagi para tamu.',
+            date_id: '20 April 2025'
+        }
+    ];
+
+    // Update blog articles
+    for (let i = 0; i < blogData.length; i++) {
+        const title = document.getElementById(`blog-title-${i+1}`);
+        const excerpt = document.getElementById(`blog-excerpt-${i+1}`);
+        const date = document.getElementById(`blog-date-${i+1}`);
+        if (title) title.textContent = lang === 'id' ? blogData[i].title_id : blogData[i].title_en;
+        if (excerpt) excerpt.textContent = lang === 'id' ? blogData[i].excerpt_id : blogData[i].excerpt_en;
+        if (date) date.textContent = lang === 'id' ? blogData[i].date_id : blogData[i].date_en;
     }
 }

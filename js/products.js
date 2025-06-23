@@ -68,13 +68,13 @@ const products = [
     {
         id: 6,
         name: "Woven Basket Bag",
-        name_id: "Mini Bag",
+        name_id: "Tas Anyaman Keranjang",
         description: "Woven basket made of flexible and durable plastic, suitable for storing candy, small snacks, accessories, souvenirs, or aesthetic displays. Available in various attractive colors & motifs. You can request models and sizes according to your needs!",
         description_id: "Anyaman keranjang terbuat dari plastik fleksibel dan tahan lama, cocok untuk menyimpan permen, camilan kecil, aksesori, souvenir, atau tampilan estetik. Tersedia dalam berbagai warna & motif yang menarik. Anda dapat meminta model dan ukuran sesuai kebutuhan Anda!",
         price: "Rp 2.000 - Rp 5.000",
         price_id: "Rp 2.000 - Rp 5.000",
-        image: "images/miniebag.png",
-        category: "bags",
+        image: "images/wovenbasketbag.png",
+        category: "bags", 
         size: "Mini",
         material: "High-quality Woven Material"
     }
@@ -88,10 +88,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load all products initially
     loadProducts('all');
-    // Ensure initial language matches flag
-    const currentFlag = document.getElementById('current-flag');
-    const lang = currentFlag ? currentFlag.getAttribute('data-lang') : 'en';
-    updateProductLanguage(lang);
+    // Ensure initial language matches flag with a slight delay
+    setTimeout(() => {
+        const currentFlag = document.getElementById('current-flag');
+        const lang = currentFlag ? currentFlag.getAttribute('data-lang') : 'en';
+        console.log('Initial language setup:', lang); // Debug log
+        updateProductLanguage(lang);
+    }, 200);
     
     // Filter button click event
     filterButtons.forEach(button => {
@@ -184,10 +187,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 openProductModal(productId);
             });
         });
-        // Always update language after rendering
-        if (typeof updateProductLanguage === 'function') {
-            updateProductLanguage(lang);
-        }
+        // Always update language after rendering with a small delay
+        setTimeout(() => {
+            if (typeof window.updateProductLanguage === 'function') {
+                console.log('Calling updateProductLanguage from loadProducts with lang:', lang); // Debug log
+                window.updateProductLanguage(lang);
+            }
+        }, 50);
     }
     
     // Function to open product modal
@@ -268,6 +274,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Make updateProductLanguage globally accessible
     window.updateProductLanguage = function(lang) {
+        console.log('updateProductLanguage called with lang:', lang); // Debug log
+        
+        // Check if products grid exists
+        if (!productsGrid) {
+            console.warn('Products grid not found, retrying...'); // Debug log
+            setTimeout(() => {
+                if (typeof updateProductLanguage === 'function') {
+                    updateProductLanguage(lang);
+                }
+            }, 100);
+            return;
+        }
+        
         // Reload products to update language
         loadProducts('all');
         
@@ -276,41 +295,66 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update other page elements
         // Update page titles and filter button
-        const productsTitle = document.getElementById('products-title');
-        const productsSubtitle = document.getElementById('products-subtitle');
-        const filterBtn = document.querySelector('.filter-btn');
+        const productsPageTitle = document.getElementById('products-page-title');
+        const productsPageSubtitle = document.getElementById('products-page-subtitle');
+        const filterBtn = document.getElementById('all-products-btn');
         
-        if (productsTitle) {
-            productsTitle.textContent = lang === 'id' ? 'Produk Kami' : 'Our Products';
+        if (productsPageTitle) {
+            productsPageTitle.textContent = lang === 'id' ? 'Produk Kami' : 'Our Products';
         }
-        if (productsSubtitle) {
-            productsSubtitle.textContent = lang === 'id' ? 'Jelajahi koleksi tas anyaman tradisional buatan tangan kami' : 'Explore our collection of handcrafted woven bags and accessories';
+        if (productsPageSubtitle) {
+            productsPageSubtitle.textContent = lang === 'id' ? 'Jelajahi koleksi tas anyaman tradisional buatan tangan kami' : 'Explore our collection of handcrafted woven bags and accessories';
         }
         if (filterBtn) {
             filterBtn.textContent = lang === 'id' ? 'Semua Produk' : 'All Products';
         }
         
-        // Update individual products
-        products.forEach(product => {
-            const titleEl = document.getElementById(`product-title-${product.id}`);
-            const descEl = document.getElementById(`product-desc-${product.id}`);
-            const priceEl = document.getElementById(`product-price-${product.id}`);
-            const btnEl = document.getElementById(`view-btn-${product.id}`);
-            
-            if (titleEl) titleEl.textContent = lang === 'id' ? (product.name_id || product.name) : product.name;
-            if (descEl) {
-                let desc = '';
-                if (lang === 'id') {
-                    desc = product.description_id ? product.description_id : product.description;
-                } else {
-                    desc = product.description ? product.description : product.description_id;
+        // Update individual products with retry mechanism
+        let retryCount = 0;
+        const updateProductElements = () => {
+            let elementsFound = 0;
+            products.forEach(product => {
+                const titleEl = document.getElementById(`product-title-${product.id}`);
+                const descEl = document.getElementById(`product-desc-${product.id}`);
+                const priceEl = document.getElementById(`product-price-${product.id}`);
+                const btnEl = document.getElementById(`view-btn-${product.id}`);
+                
+                if (titleEl) {
+                    titleEl.textContent = lang === 'id' ? (product.name_id || product.name) : product.name;
+                    elementsFound++;
                 }
-                if (desc && desc.length > 80) desc = desc.substring(0, 80) + '...';
-                descEl.textContent = desc;
+                if (descEl) {
+                    let desc = '';
+                    if (lang === 'id') {
+                        desc = product.description_id ? product.description_id : product.description;
+                    } else {
+                        desc = product.description ? product.description : product.description_id;
+                    }
+                    if (desc && desc.length > 80) desc = desc.substring(0, 80) + '...';
+                    descEl.textContent = desc;
+                    elementsFound++;
+                }
+                if (priceEl) {
+                    priceEl.textContent = product.price;
+                    elementsFound++;
+                }
+                if (btnEl) {
+                    btnEl.textContent = lang === 'id' ? 'Lihat Detail' : 'View Details';
+                    elementsFound++;
+                }
+            });
+            
+            // If no elements found and retry count < 3, try again
+            if (elementsFound === 0 && retryCount < 3) {
+                retryCount++;
+                console.log(`Retrying product element update, attempt ${retryCount}`); // Debug log
+                setTimeout(updateProductElements, 100);
+            } else {
+                console.log(`Product elements updated, ${elementsFound} elements found`); // Debug log
             }
-            if (priceEl) priceEl.textContent = product.price;
-            if (btnEl) btnEl.textContent = lang === 'id' ? 'Lihat Detail' : 'View Details';
-        });
+        };
+        
+        updateProductElements();
         // Update modal content if open, but do NOT re-call openProductModal
         if (modal && modal.style.display === 'block') {
             const productId = parseInt(modal.getAttribute('data-product-id'));
