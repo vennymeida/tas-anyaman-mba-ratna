@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateGalleryPrices('en');
         if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
         if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
+        if (typeof updateBlogDetailLanguage === 'function') updateBlogDetailLanguage('en');
         if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
     }
     
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
                 }, 50);
                 if (typeof updateBlogLanguage === 'function') updateBlogLanguage('id');
+                if (typeof updateBlogDetailLanguage === 'function') updateBlogDetailLanguage('id');
                 if (typeof updateFaqLanguage === 'function') updateFaqLanguage('id');
             } else {
                 currentFlag.src = 'images/flag-en.png';
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
                 }, 50);
                 if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
+                if (typeof updateBlogDetailLanguage === 'function') updateBlogDetailLanguage('en');
                 if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
             }
         });
