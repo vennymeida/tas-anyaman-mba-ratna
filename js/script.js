@@ -23,7 +23,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentFlag = document.getElementById('current-flag');
     
     // Set default language to English when page loads
-    // (Removed: do not set flag image or data-lang or call setEnglishLanguage here)
+    if (currentFlag) {
+        currentFlag.src = 'images/flag-en.png';
+        currentFlag.setAttribute('data-lang', 'en');
+        setEnglishLanguage();
+        updateGalleryPrices('en');
+        if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
+        if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
+        if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
+    }
     
     if (languageSelector) {
         languageSelector.addEventListener('click', function() {
@@ -37,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentFlag.src = 'images/flag-id.png';
                 currentFlag.setAttribute('data-lang', 'id');
                 setIndonesianLanguage();
+                updateGalleryPrices('id');
                 if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
                 if (typeof updateBlogLanguage === 'function') updateBlogLanguage('id');
                 if (typeof updateFaqLanguage === 'function') updateFaqLanguage('id');
@@ -44,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentFlag.src = 'images/flag-en.png';
                 currentFlag.setAttribute('data-lang', 'en');
                 setEnglishLanguage();
+                updateGalleryPrices('en');
                 if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
                 if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
                 if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
@@ -170,8 +180,8 @@ function setIndonesianLanguage() {
         changeElementText('hero-title', 'Tas Anyaman Mba Ratna');
         changeElementText('hero-description', 'Tas Anyaman Mba Ratna menawarkan tas kerajinan dengan kualitas terbaik dan menarik bagi semua pelanggan. Cari dan temukan tas pilihan Anda!');
         changeElementText('hero-button', 'Jelajahi Koleksi Kami');
-        // Featured products price conversion
-        convertFeaturedProductPrices('id');
+        // Update gallery prices
+        updateGalleryPrices('id');
         // Featured products (index)
         changeElementText('featured-title-1', 'Tas Souvenir');
         changeElementText('featured-desc-1', 'Tas souvenir anyaman custom ini cocok untuk pernikahan. Permintaan gratis! Anda bisa memilih kombinasi warna sendiri.');
@@ -263,6 +273,19 @@ function setIndonesianLanguage() {
     changeElementText('label-message', 'Pesan Anda');
     changeElementText('btn-send-message', 'Kirim Pesan');
     
+    // Gallery page translations
+    changeElementText('gallery-page-title', 'Galeri Kami');
+    changeElementText('gallery-page-subtitle', 'Jelajahi keahlian kami melalui gambar produk dan proses kami');
+    changeElementText('gallery-videos-title', 'Video Kami');
+    changeElementText('promo-video-title', 'Video Promosi');
+    changeElementText('promo-video-subtitle', 'Tas Anyaman Premium Mba Ratna');
+    changeElementText('promo-video-desc', 'Unik, stylish, dan terjangkau! Terbuat dari plastik sintetis berkualitas tinggi, produk ini ringan dan tahan lama. Bisa kustomisasi warna dan desain sesuai gaya Anda.');
+    changeElementText('promo-video-price', '💸 Harga: Rp 55.000 – Rp 75.000');
+    changeElementText('promo-video-note', 'Cocok untuk tampilan harian, OOTD, atau hadiah spesial!');
+    changeElementText('manufacturing-video-title', 'Video Produksi');
+    changeElementText('manufacturing-video-subtitle', 'Proses Produksi Tas Anyaman Mba Ratna');
+    changeElementText('manufacturing-video-desc', 'Dari memotong plastik, menyusun, hingga proses anyaman oleh 4-5 pengrajin kreatif. Dalam sehari, bisa diproduksi 50-75 tas dengan berbagai model. Pelanggan bisa request warna, ukuran, dan aksesoris. Hasilnya tas yang kuat, estetik, dan multifungsi—cocok untuk souvenir acara atau fashion premium.');
+    
     // Footer Section
     changeElementText('footer-about-title', 'Tentang Tas Anyaman Mba Ratna');
     changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna berdedikasi untuk melestarikan kerajinan tenun tradisional sambil memberikan mata pencaharian yang berkelanjutan bagi pengrajin terampil.');
@@ -300,8 +323,8 @@ function setEnglishLanguage() {
         changeElementText('hero-title', 'Tas Anyaman Mba Ratna');
         changeElementText('hero-description', 'Tas Anyaman Mba Ratna offers the best quality and attractive craft bags to all customers. Search and find the bag of your choice!');
         changeElementText('hero-button', 'Explore Our Collection');
-        // Featured products price conversion
-        convertFeaturedProductPrices('en');
+        // Update gallery prices
+        updateGalleryPrices('en');
         // Featured products (index)
         changeElementText('featured-title-1', 'Souvenir Bag');
         changeElementText('featured-desc-1', 'This custom-woven souvenir bag is perfect for weddings. Free request! You can choose a combination of colors.');
@@ -310,9 +333,9 @@ function setEnglishLanguage() {
         changeElementText('featured-title-3', 'Shopping Bag');
         changeElementText('featured-desc-3', 'This market woven shopping bag is practical, strong, and environmentally friendly, ideal for carrying groceries.');
         // Harga featured products
-        changeElementText('featured-price-1', '$0.27 - $0.67');
-        changeElementText('featured-price-2', '$3.67 - $5.00');
-        changeElementText('featured-price-3', '$0.33 - $0.67');
+        changeElementText('featured-price-1', 'Rp 4.000 - Rp 10.000');
+        changeElementText('featured-price-2', 'Rp 55.000 - Rp 75.000');
+        changeElementText('featured-price-3', 'Rp 5.000 - Rp 10.000');
         // View all products button
         changeElementText('view-all-products-button', 'View All Products');
         if (typeof updateFeaturedProductsLanguage === 'function') updateFeaturedProductsLanguage('en');
@@ -351,11 +374,21 @@ function setEnglishLanguage() {
     } else if (page === 'products.html') {
         changeElementText('products-title', 'Featured Products');
         changeElementText('section-subtitle', 'Discover our handcrafted collection of traditional woven items');
-        // Product prices
-        convertFeaturedProductPrices('en');
+        // Update gallery prices only
+        updateGalleryPrices('en');
         if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
     } else if (page === 'gallery.html') {
-        changeElementText('gallery-title', 'Gallery');
+        changeElementText('gallery-page-title', 'Our Gallery');
+        changeElementText('gallery-page-subtitle', 'Explore our craftsmanship through images of our products and process');
+        changeElementText('gallery-videos-title', 'Our Videos');
+        changeElementText('promo-video-title', 'Promotional Video');
+        changeElementText('promo-video-subtitle', "Mba Ratna's Premium Woven Bag");
+        changeElementText('promo-video-desc', 'Unique, stylish, and affordable! Made of high-quality synthetic plastic, this product is lightweight and durable. Can customize the color and design to suit your style.');
+        changeElementText('promo-video-price', '💸 Price: $3.67 – $5.00');
+        changeElementText('promo-video-note', 'Suitable for a daily look, OOTD, or a special gift!');
+        changeElementText('manufacturing-video-title', 'Manufacturing Video');
+        changeElementText('manufacturing-video-subtitle', "Mba Ratna's Woven Bag Production Process");
+        changeElementText('manufacturing-video-desc', 'From cutting the plastic, arranging, to the weaving process by 4-5 creative craftsmen. In one day, 50-75 bags with various models can be produced. Customers can request colors, sizes, and accessories. The result is a strong, aesthetic, and multifunctional bag—suitable for event souvenirs or premium fashion.');
     } else if (page === 'blog.html') {
         changeElementText('blog-title', 'Blog');
         if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
@@ -375,23 +408,23 @@ function setEnglishLanguage() {
     changeElementText('gallery-item-6', 'Product Display');
     
     // Contact Section
-    changeElementText('contact-get-in-touch', 'Get In Touch');
-    changeElementText('contact-address-title', 'Address');
-    changeElementHTML('contact-address', 'Front of KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kediri Regency<br>East Java 64175');
-    changeElementText('contact-phone-title', 'Phone');
+        changeElementText('contact-get-in-touch', 'Get In Touch');
+        changeElementText('contact-address-title', 'Address');
+        changeElementHTML('contact-address', 'Front of KUD Sri Among Tani, No. 97<br>Brenggolo, Plosoklaten, Kediri Regency<br>East Java 64175');
+        changeElementText('contact-phone-title', 'Phone');
     changeElementText('contact-phone', '(62) 856-0898-0005');
-    changeElementText('contact-tiktok-title', 'TikTok');
+        changeElementText('contact-tiktok-title', 'TikTok');
     changeElementText('contact-tiktok', '@tas_anyaman_mba_ratna');
-    changeElementText('contact-instagram-title', 'Instagram');
+        changeElementText('contact-instagram-title', 'Instagram');
     changeElementText('contact-instagram', '@tas_anyaman_ratna');
-    changeElementText('contact-hours-title', 'Open Hours');
-    changeElementHTML('contact-hours', 'Monday - Friday: 9am - 5pm<br>Saturday: 10am - 4pm<br>Sunday: Closed');
-    changeElementText('contact-form-title', 'Send Us a Message');
-    changeElementText('label-name', 'Your Name');
-    changeElementText('label-email', 'Your Email');
-    changeElementText('label-subject', 'Subject');
-    changeElementText('label-message', 'Your Message');
-    changeElementText('btn-send-message', 'Send Message');
+        changeElementText('contact-hours-title', 'Open Hours');
+        changeElementHTML('contact-hours', 'Monday - Friday: 9am - 5pm<br>Saturday: 10am - 4pm<br>Sunday: Closed');
+        changeElementText('contact-form-title', 'Send Us a Message');
+        changeElementText('label-name', 'Your Name');
+        changeElementText('label-email', 'Your Email');
+        changeElementText('label-subject', 'Subject');
+        changeElementText('label-message', 'Your Message');
+        changeElementText('btn-send-message', 'Send Message');
     
     // Footer Section
     changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
@@ -444,4 +477,16 @@ function convertFeaturedProductPrices(lang) {
             }
         }
     });
+}
+
+// Helper to update gallery prices (always in Rupiah)
+function updateGalleryPrices(lang) {
+    const galleryPriceElement = document.getElementById('promo-video-price');
+    if (galleryPriceElement) {
+        if (lang === 'id') {
+            changeElementText('promo-video-price', '💸 Harga: Rp 55.000 – Rp 75.000');
+        } else {
+            changeElementText('promo-video-price', '💸 Price: Rp 55.000 – Rp 75.000');
+        }
+    }
 }
