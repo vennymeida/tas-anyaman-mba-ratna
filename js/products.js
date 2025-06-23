@@ -42,7 +42,7 @@ const products = [
     {
         id: 4,
         name: "Goodie Bag",
-        name_id: "Goodie Bag",
+        name_id: "Tas Jinjing",
         description: "The elegant and functional woven design makes this bag the right choice for various purposes. This bag is perfect for use as a goodie bag, whether for birthdays, weddings, seminars, or various other events. You can request a bag design according to the theme of the event or personal needs, according to the items inside.",
         description_id: "Desain anyaman yang elegan dan fungsional membuat tas ini menjadi pilihan tepat untuk berbagai keperluan. Tas ini sangat cocok digunakan sebagai goodie bag, baik untuk ulang tahun, pernikahan, seminar, atau berbagai acara lainnya. Anda dapat meminta desain tas sesuai tema acara atau kebutuhan pribadi, sesuai dengan barang di dalamnya.",
         price: "Rp 10.000 - Rp 15.000",
@@ -55,9 +55,9 @@ const products = [
     {
         id: 5,
         name: "Mini Bag",
-        name_id: "Mini Bag",
+        name_id: "Tas Kecil",
         description: "This woven mini bag comes with the latest compact and elegant design, made of high-quality materials that are durable and long-lasting. Although its size is small, this bag is wide enough to store various important items such as wallets, cellphones, cosmetics, or even small snacks. A trendy and unique woven design provides a stylish touch, making it the perfect accessory for casual and formal events.",
-        description_id: "Mini bag anyaman ini hadir dengan desain compact dan elegan terbaru, terbuat dari bahan berkualitas tinggi yang tahan lama. Meski ukurannya kecil, tas ini cukup luas untuk menyimpan berbagai barang penting seperti dompet, ponsel, kosmetik, atau bahkan camilan kecil. Desain anyaman yang trendi dan unik memberikan sentuhan stylish, menjadikannya aksesori sempurna untuk acara santai maupun formal.",
+        description_id: "Tas kecil anyaman ini hadir dengan desain compact dan elegan terbaru, terbuat dari bahan berkualitas tinggi yang tahan lama. Meski ukurannya kecil, tas ini cukup luas untuk menyimpan berbagai barang penting seperti dompet, ponsel, kosmetik, atau bahkan camilan kecil. Desain anyaman yang trendi dan unik memberikan sentuhan stylish, menjadikannya aksesori sempurna untuk acara santai maupun formal.",
         price: "Rp 17.000 - Rp 20.000",
         price_id: "Rp 17.000 - Rp 20.000",
         image: "images/miniebag.png",
@@ -88,13 +88,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load all products initially
     loadProducts('all');
+    
     // Ensure initial language matches flag with a slight delay
     setTimeout(() => {
         const currentFlag = document.getElementById('current-flag');
         const lang = currentFlag ? currentFlag.getAttribute('data-lang') : 'en';
         console.log('Initial language setup:', lang); // Debug log
-        updateProductLanguage(lang);
-    }, 200);
+        
+        // Direct product update without reload
+        if (typeof window.updateProductLanguage === 'function') {
+            window.updateProductLanguage(lang);
+        }
+    }, 300);
     
     // Filter button click event
     filterButtons.forEach(button => {
@@ -180,20 +185,25 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             productsGrid.appendChild(productCard);
         });
-        // Add event listeners to view product buttons
-        document.querySelectorAll('.view-product').forEach(button => {
-            button.addEventListener('click', function() {
-                const productId = parseInt(this.getAttribute('data-id'));
-                openProductModal(productId);
+        // Add event listeners to view product buttons with immediate setup
+        const addEventListeners = () => {
+            document.querySelectorAll('.view-product').forEach(button => {
+                // Remove any existing listeners first
+                button.removeEventListener('click', handleProductClick);
+                button.addEventListener('click', handleProductClick);
             });
-        });
-        // Always update language after rendering with a small delay
-        setTimeout(() => {
-            if (typeof window.updateProductLanguage === 'function') {
-                console.log('Calling updateProductLanguage from loadProducts with lang:', lang); // Debug log
-                window.updateProductLanguage(lang);
-            }
-        }, 50);
+        };
+        
+        // Product click handler function
+        function handleProductClick(event) {
+            event.preventDefault();
+            const productId = parseInt(this.getAttribute('data-id'));
+            console.log('Product clicked:', productId); // Debug log
+            openProductModal(productId);
+        }
+        
+        // Setup event listeners immediately
+        addEventListeners();
     }
     
     // Function to open product modal
@@ -287,14 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Reload products to update language
-        loadProducts('all');
-        
-        // Re-setup modal close listeners after reload
-        setupModalCloseListeners();
-        
-        // Update other page elements
-        // Update page titles and filter button
+        // Update page titles and filter button first
         const productsPageTitle = document.getElementById('products-page-title');
         const productsPageSubtitle = document.getElementById('products-page-subtitle');
         const filterBtn = document.getElementById('all-products-btn');
@@ -309,18 +312,27 @@ document.addEventListener('DOMContentLoaded', function() {
             filterBtn.textContent = lang === 'id' ? 'Semua Produk' : 'All Products';
         }
         
+        // Update individual products immediately
+        console.log('Updating individual product elements...'); // Debug log
+        
         // Update individual products with retry mechanism
         let retryCount = 0;
         const updateProductElements = () => {
             let elementsFound = 0;
+            console.log('Looking for', products.length, 'products to update'); // Debug log
+            
             products.forEach(product => {
                 const titleEl = document.getElementById(`product-title-${product.id}`);
                 const descEl = document.getElementById(`product-desc-${product.id}`);
                 const priceEl = document.getElementById(`product-price-${product.id}`);
                 const btnEl = document.getElementById(`view-btn-${product.id}`);
                 
+                console.log(`Product ${product.id}:`, { titleEl: !!titleEl, descEl: !!descEl, priceEl: !!priceEl, btnEl: !!btnEl }); // Debug log
+                
                 if (titleEl) {
-                    titleEl.textContent = lang === 'id' ? (product.name_id || product.name) : product.name;
+                    const newTitle = lang === 'id' ? (product.name_id || product.name) : product.name;
+                    console.log(`Updating title for product ${product.id}: ${newTitle}`); // Debug log
+                    titleEl.textContent = newTitle;
                     elementsFound++;
                 }
                 if (descEl) {
