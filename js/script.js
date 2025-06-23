@@ -173,6 +173,16 @@ function setIndonesianLanguage() {
     changeElementText('nav-blog', 'Blog');
     changeElementText('nav-contact', 'Kontak');
     changeElementText('nav-faq', 'FAQ');
+    
+    // Mobile Navigation
+    changeElementText('mobile-nav-home', 'Beranda');
+    changeElementText('mobile-nav-about', 'Tentang Kami');
+    changeElementText('mobile-nav-products', 'Produk');
+    changeElementText('mobile-nav-gallery', 'Galeri');
+    changeElementText('mobile-nav-blog', 'Blog');
+    changeElementText('mobile-nav-contact', 'Kontak');
+    changeElementText('mobile-nav-faq', 'FAQ');
+    changeElementText('mobile-nav-shop', 'Belanja Sekarang');
     // Page-specific translations
     const page = window.location.pathname.split('/').pop();
     if (page === '' || page === 'index.html') {
@@ -197,8 +207,9 @@ function setIndonesianLanguage() {
         changeElementText('view-all-products-button', 'Lihat Semua Produk');
         if (typeof updateFeaturedProductsLanguage === 'function') updateFeaturedProductsLanguage('id');
     } else if (page === 'about.html') {
-        changeElementText('about-title', 'Tentang Kami');
-        changeElementText('about-subtitle', 'Melestarikan Tradisi Kerajinan Tangan');
+        changeElementText('about-page-title', 'Tentang Kami');
+        changeElementText('about-page-subtitle', 'Pelajari tentang cerita, misi, dan pengrajin di balik produk kami');
+        changeElementText('about-subtitle', 'Cerita Kami');
         changeElementText('about-paragraph-1', 'Tas Anyaman Mba Ratna didirikan pada tahun 2020 oleh Dwi Ratnasari. Dengan misi melestarikan dan memajukan teknik tenun tradisional sederhana yang telah diwariskan dari generasi ke generasi.');
         changeElementText('about-paragraph-2', 'Tas anyaman yang dihasilkan dibuat dengan cermat menggunakan metode tenun tradisional. Hal ini dapat melestarikan keterampilan tradisional yang telah diwariskan dan akan terus berkembang di dunia modern.');
         changeElementText('about-paragraph-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini menghasilkan kepercayaan dan kepuasan pelanggan.');
@@ -229,20 +240,24 @@ function setIndonesianLanguage() {
         changeElementText('process-5-title', 'Pemeriksaan Kualitas');
         changeElementText('process-5-desc', 'Setiap produk menjalani pemeriksaan kualitas menyeluruh untuk memastikan memenuhi standar tinggi kami sebelum ditawarkan kepada pelanggan.');
     } else if (page === 'products.html') {
-        changeElementText('products-title', 'Produk Unggulan');
-        changeElementText('section-subtitle', 'Temukan koleksi kerajinan tangan tradisional kami');
+        changeElementText('products-title', 'Produk Kami');
+        changeElementText('products-subtitle', 'Jelajahi koleksi tas anyaman tradisional buatan tangan kami');
         // Product prices
         convertFeaturedProductPrices('id');
         if (typeof updateProductLanguage === 'function') updateProductLanguage('id');
     } else if (page === 'gallery.html') {
         changeElementText('gallery-title', 'Galeri');
     } else if (page === 'blog.html') {
-        changeElementText('blog-title', 'Blog');
+        changeElementText('blog-page-title', 'Blog Kami');
+        changeElementText('blog-page-subtitle', 'Temukan tips, cerita, dan wawasan tentang kerajinan anyaman tradisional');
         if (typeof updateBlogLanguage === 'function') updateBlogLanguage('id');
     } else if (page === 'contact.html') {
-        changeElementText('contact-title', 'Hubungi Kami');
+        changeElementText('contact-page-title', 'Hubungi Kami');
+        changeElementText('contact-page-subtitle', 'Kami senang mendengar dari Anda. Hubungi kami!');
+        changeElementText('location-title', 'Lokasi Kami');
     } else if (page === 'faq.html') {
         changeElementText('faq-title', 'Pertanyaan yang Sering Diajukan');
+        changeElementText('faq-subtitle', 'Temukan jawaban atas pertanyaan umum tentang produk dan layanan kami');
         if (typeof updateFaqLanguage === 'function') updateFaqLanguage('id');
     }
     
@@ -316,6 +331,16 @@ function setEnglishLanguage() {
     changeElementText('nav-blog', 'Blog');
     changeElementText('nav-contact', 'Contact');
     changeElementText('nav-faq', 'FAQ');
+    
+    // Mobile Navigation
+    changeElementText('mobile-nav-home', 'Home');
+    changeElementText('mobile-nav-about', 'About');
+    changeElementText('mobile-nav-products', 'Products');
+    changeElementText('mobile-nav-gallery', 'Gallery');
+    changeElementText('mobile-nav-blog', 'Blog');
+    changeElementText('mobile-nav-contact', 'Contact');
+    changeElementText('mobile-nav-faq', 'FAQ');
+    changeElementText('mobile-nav-shop', 'Shop Now');
     // Page-specific translations
     const page = window.location.pathname.split('/').pop();
     if (page === '' || page === 'index.html') {
@@ -340,8 +365,9 @@ function setEnglishLanguage() {
         changeElementText('view-all-products-button', 'View All Products');
         if (typeof updateFeaturedProductsLanguage === 'function') updateFeaturedProductsLanguage('en');
     } else if (page === 'about.html') {
-        changeElementText('about-title', 'About Us');
-        changeElementText('about-subtitle', 'Preserving Handcraft Traditions');
+        changeElementText('about-page-title', 'About Us');
+        changeElementText('about-page-subtitle', 'Learn about our story, mission, and the artisans behind our products');
+        changeElementText('about-subtitle', 'Our Story');
         changeElementText('about-paragraph-1', 'Tas Anyaman Mba Ratna was founded in 2020 by Dwi Ratnasari. With a mission to preserve and promote traditional simple weaving techniques that have been passed down from generation to generation.');
         changeElementText('about-paragraph-2', 'The woven bags produced are carefully made using traditional weaving methods. This can preserve traditional skills passed down and will continue to develop in the modern world.');
         changeElementText('about-paragraph-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction.');
@@ -372,8 +398,8 @@ function setEnglishLanguage() {
         changeElementText('process-5-title', 'Quality Check');
         changeElementText('process-5-desc', 'Every product undergoes a thorough quality check to ensure it meets our high standards before being offered to customers.');
     } else if (page === 'products.html') {
-        changeElementText('products-title', 'Featured Products');
-        changeElementText('section-subtitle', 'Discover our handcrafted collection of traditional woven items');
+        changeElementText('products-title', 'Our Products');
+        changeElementText('products-subtitle', 'Explore our collection of handcrafted woven bags and accessories');
         // Update gallery prices only
         updateGalleryPrices('en');
         if (typeof updateProductLanguage === 'function') updateProductLanguage('en');
@@ -384,18 +410,22 @@ function setEnglishLanguage() {
         changeElementText('promo-video-title', 'Promotional Video');
         changeElementText('promo-video-subtitle', "Mba Ratna's Premium Woven Bag");
         changeElementText('promo-video-desc', 'Unique, stylish, and affordable! Made of high-quality synthetic plastic, this product is lightweight and durable. Can customize the color and design to suit your style.');
-        changeElementText('promo-video-price', '💸 Price: $3.67 – $5.00');
+        changeElementText('promo-video-price', '💸 Price: Rp 55.000 – Rp 75.000');
         changeElementText('promo-video-note', 'Suitable for a daily look, OOTD, or a special gift!');
         changeElementText('manufacturing-video-title', 'Manufacturing Video');
         changeElementText('manufacturing-video-subtitle', "Mba Ratna's Woven Bag Production Process");
         changeElementText('manufacturing-video-desc', 'From cutting the plastic, arranging, to the weaving process by 4-5 creative craftsmen. In one day, 50-75 bags with various models can be produced. Customers can request colors, sizes, and accessories. The result is a strong, aesthetic, and multifunctional bag—suitable for event souvenirs or premium fashion.');
     } else if (page === 'blog.html') {
-        changeElementText('blog-title', 'Blog');
+        changeElementText('blog-page-title', 'Our Blog');
+        changeElementText('blog-page-subtitle', 'Discover tips, stories, and insights about traditional weaving crafts');
         if (typeof updateBlogLanguage === 'function') updateBlogLanguage('en');
     } else if (page === 'contact.html') {
-        changeElementText('contact-title', 'Contact Us');
+        changeElementText('contact-page-title', 'Contact Us');
+        changeElementText('contact-page-subtitle', "We'd love to hear from you. Get in touch with us!");
+        changeElementText('location-title', 'Our Location');
     } else if (page === 'faq.html') {
         changeElementText('faq-title', 'Frequently Asked Questions');
+        changeElementText('faq-subtitle', 'Find answers to common questions about our products and services');
         if (typeof updateFaqLanguage === 'function') updateFaqLanguage('en');
     }
     
