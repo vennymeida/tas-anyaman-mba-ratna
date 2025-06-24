@@ -884,4 +884,10 @@ function updateBlogLanguage(lang) {
         if (excerpt) excerpt.textContent = lang === 'id' ? blogData[i].excerpt_id : blogData[i].excerpt_en;
         if (date) date.textContent = lang === 'id' ? blogData[i].date_id : blogData[i].date_en;
     }
+    
+    // Update Read More buttons
+    for (let i = 1; i <= 3; i++) {
+        const readMoreBtn = document.getElementById(`read-more-${i}`);
+        if (readMoreBtn) readMoreBtn.textContent = lang === 'id' ? 'Baca Selengkapnya' : 'Read More';
+    }
 }

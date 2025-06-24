@@ -67,7 +67,7 @@
                         <div class="blog-date" id="blog-date-1">May 15, 2025</div>
                         <h3 class="blog-title" id="blog-title-1">How To Care for a Hand-Woven Bag</h3>
                         <p class="blog-excerpt" id="blog-excerpt-1">Learn how to properly maintain and care for your handwoven bags to ensure they last for years to come.</p>
-                        <a href="blog-detail.html?id=1" class="read-more">Read More</a>
+                        <a href="blog-detail.html?id=1" class="read-more" id="read-more-1">Read More</a>
                     </div>
                 </article>
 
@@ -79,7 +79,7 @@
                         <div class="blog-date" id="blog-date-2">May 2, 2025</div>
                         <h3 class="blog-title" id="blog-title-2">Recommended Shopping Bags to Replace Plastic Bags</h3>
                         <p class="blog-excerpt" id="blog-excerpt-2">Currently, the use of plastic bags in several shopping centers has been banned by the government.</p>
-                        <a href="blog-detail.html?id=2" class="read-more">Read More</a>
+                        <a href="blog-detail.html?id=2" class="read-more" id="read-more-2">Read More</a>
                     </div>
                 </article>
 
@@ -91,7 +91,7 @@
                         <div class="blog-date" id="blog-date-3">April 20, 2025</div>
                         <h3 class="blog-title" id="blog-title-3">Cheap and Functional Wedding Souvenir Bag Recommendations</h3>
                         <p class="blog-excerpt" id="blog-excerpt-3">Wedding souvenirs are not just souvenirs, but also one of the most important factors that will give a deep impression to the guests</p>
-                        <a href="blog-detail.html?id=3" class="read-more">Read More</a>
+                        <a href="blog-detail.html?id=3" class="read-more" id="read-more-3">Read More</a>
                     </div>
                 </article>
             </div>
@@ -124,65 +124,33 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-address" style="text-align: center; margin: 20px 0; font-size: 0.9em;">
-                <a href="https://g.co/kgs/EbaZ8un" target="_blank" style="color: #666;">
-                    <p id="footer-left">View Location on Google Maps</p>
+            <div class="footer-address" style="text-align: center; margin: 30px 0;">
+                <a href="https://g.co/kgs/EbaZ8un" target="_blank" style="
+                    display: inline-block;
+                    background: linear-gradient(135deg, #8AA07B, #6B8E5A);
+                    color: white;
+                    padding: 12px 24px;
+                    border-radius: 25px;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 1.1em;
+                    box-shadow: 0 4px 15px rgba(138, 160, 123, 0.3);
+                    transition: all 0.3s ease;
+                    border: 2px solid transparent;
+                " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(138, 160, 123, 0.4)'; this.style.borderColor='#8AA07B';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(138, 160, 123, 0.3)'; this.style.borderColor='transparent';">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
+                    <span id="footer-left">View Location on Google Maps</span>
                 </a>
             </div>
             <div class="footer-bottom">
                 <p id="footer-rights">&copy; 2025 Tas Anyaman Mba Ratna. All Rights Reserved.</p>
-                <a href="admin.html" style="color: #666; margin-left: 10px; font-size: 0.9em;">Admin</a>
             </div>
         </div>
     </footer>
 
     <!-- Font Awesome for icons (CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script>
-    // Bilingual blog data
-    const blogData = [
-        {
-            title_en: 'How To Care for a Hand-Woven Bag',
-            excerpt_en: 'Learn how to properly maintain and care for your handwoven bags to ensure they last for years to come.',
-            date_en: 'May 15, 2025',
-            title_id: 'Cara Merawat Tas Anyaman',
-            excerpt_id: 'Pelajari cara merawat dan menjaga tas anyaman Anda agar tahan lama dan awet.',
-            date_id: '15 Mei 2025'
-        },
-        {
-            title_en: 'Recommended Shopping Bags to Replace Plastic Bags',
-            excerpt_en: 'Currently, the use of plastic bags in several shopping centers has been banned by the government.',
-            date_en: 'May 2, 2025',
-            title_id: 'Rekomendasi Tas Belanja Pengganti Kantong Plastik',
-            excerpt_id: 'Saat ini, penggunaan kantong plastik di beberapa pusat perbelanjaan telah dilarang oleh pemerintah.',
-            date_id: '2 Mei 2025'
-        },
-        {
-            title_en: 'Cheap and Functional Wedding Souvenir Bag Recommendations',
-            excerpt_en: 'Wedding souvenirs are not just souvenirs, but also one of the most important factors that will give a deep impression to the guests',
-            date_en: 'April 20, 2025',
-            title_id: 'Rekomendasi Tas Souvenir Pernikahan Murah dan Fungsional',
-            excerpt_id: 'Souvenir pernikahan bukan hanya sekadar oleh-oleh, tetapi juga salah satu faktor penting yang akan memberikan kesan mendalam bagi para tamu.',
-            date_id: '20 April 2025'
-        }
-    ];
 
-    function updateBlogLanguage(lang) {
-        for (let i = 0; i < blogData.length; i++) {
-            const title = document.getElementById(`blog-title-${i+1}`);
-            const excerpt = document.getElementById(`blog-excerpt-${i+1}`);
-            const date = document.getElementById(`blog-date-${i+1}`);
-            if (title) title.textContent = lang === 'id' ? blogData[i].title_id : blogData[i].title_en;
-            if (excerpt) excerpt.textContent = lang === 'id' ? blogData[i].excerpt_id : blogData[i].excerpt_en;
-            if (date) date.textContent = lang === 'id' ? blogData[i].date_id : blogData[i].date_en;
-        }
-        // Blog page title and subtitle
-        const blogPageTitle = document.getElementById('blog-page-title');
-        const blogPageSubtitle = document.getElementById('blog-page-subtitle');
-        if (blogPageTitle) blogPageTitle.textContent = lang === 'id' ? 'Blog Kami' : 'Our Blog';
-        if (blogPageSubtitle) blogPageSubtitle.textContent = lang === 'id' ? 'Temukan tips, cerita, dan wawasan tentang kerajinan anyaman tradisional' : 'Discover tips, stories, and insights about traditional weaving crafts';
-    }
-    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -24,7 +24,9 @@ const products = [
         image: "images/premiumbag.png",
         category: "bags",
         size: "Various (Tote, Sling, Bucket)",
-        material: "Eco-friendly Plastic Weave"
+        size_id: "Beragam (Tote, Sling, Bucket)",
+        material: "Eco-friendly Plastic Weave",
+        material_id: "Anyaman Plastik Ramah Lingkungan"
     },
     {
         id: 3,
@@ -37,7 +39,9 @@ const products = [
         image: "images/shoppingbag.png",
         category: "bags",
         size: "Various",
-        material: "Durable Plastic Weave"
+        size_id: "Beragam",
+        material: "Durable Plastic Weave",
+        material_id: "Anyaman Plastik Tahan Lama"
     },
     {
         id: 4,
@@ -50,7 +54,9 @@ const products = [
         image: "images/goodiebag.png",
         category: "bags",
         size: "Customizable",
-        material: "Plastic Woven Material"
+        size_id: "Dapat Disesuaikan",
+        material: "Plastic Woven Material",
+        material_id: "Bahan Anyaman Plastik"
     },
     {
         id: 5,
@@ -63,7 +69,9 @@ const products = [
         image: "images/miniebag.png",
         category: "bags",
         size: "Mini",
-        material: "High-quality Woven Material"
+        size_id: "Mini",
+        material: "High-quality Woven Material",
+        material_id: "Bahan Anyaman Berkualitas Tinggi"
     },
     {
         id: 6,
@@ -76,7 +84,9 @@ const products = [
         image: "images/wovenbasketbag.png",
         category: "bags", 
         size: "Mini",
-        material: "High-quality Woven Material"
+        size_id: "Mini",
+        material: "High-quality Woven Material",
+        material_id: "Bahan Anyaman Berkualitas Tinggi"
     }
 ];
 
@@ -216,8 +226,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modal-product-image').src = product.image;
         document.getElementById('modal-product-title').textContent = lang === 'id' ? product.name_id : product.name;
         document.getElementById('modal-product-description').textContent = lang === 'id' ? product.description_id : product.description;
-        document.getElementById('modal-product-size').textContent = product.size;
-        document.getElementById('modal-product-material').textContent = product.material;
+        document.getElementById('modal-product-size').textContent = lang === 'id' ? (product.size_id || product.size) : product.size;
+        document.getElementById('modal-product-material').textContent = lang === 'id' ? (product.material_id || product.material) : product.material;
         document.getElementById('modal-product-price').textContent = product.price;
         
         // Update buy button text
@@ -378,8 +388,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('modal-product-image').src = product.image;
                     document.getElementById('modal-product-title').textContent = lang === 'id' ? (product.name_id || product.name) : product.name;
                     document.getElementById('modal-product-description').textContent = lang === 'id' ? (product.description_id || product.description) : (product.description || product.description_id);
-                    document.getElementById('modal-product-size').textContent = product.size;
-                    document.getElementById('modal-product-material').textContent = product.material;
+                    document.getElementById('modal-product-size').textContent = lang === 'id' ? (product.size_id || product.size) : product.size;
+                    document.getElementById('modal-product-material').textContent = lang === 'id' ? (product.material_id || product.material) : product.material;
                     document.getElementById('modal-product-price').textContent = product.price;
                     
                     // Update modal buy button text
