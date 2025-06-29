@@ -614,19 +614,6 @@ function setEnglishLanguage() {
         changeElementText('footer-link-faq', 'FAQ');
         changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
         changeElementText('footer-left', 'View Location on Google Maps');
-        // Footer
-        changeElementText('footer-about-title', 'About Tas Anyaman Mba Ratna');
-        changeElementText('footer-about-description', 'Tas Anyaman Mba Ratna is dedicated to preserving traditional weaving craftsmanship while providing sustainable livelihoods for skilled artisans.');
-        changeElementText('footer-quick-links-title', 'Quick Links');
-        changeElementText('footer-link-home', 'Home');
-        changeElementText('footer-link-about', 'About');
-        changeElementText('footer-link-products', 'Products');
-        changeElementText('footer-link-gallery', 'Gallery');
-        changeElementText('footer-link-blog', 'Blog');
-        changeElementText('footer-link-contact', 'Contact');
-        changeElementText('footer-link-faq', 'FAQ');
-        changeElementText('footer-rights', '© 2025 Tas Anyaman Mba Ratna. All Rights Reserved.');
-        changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'blog.html') {
         changeElementText('blog-page-title', 'Our Blog');
         changeElementText('blog-page-subtitle', 'Discover tips, stories, and insights about traditional weaving crafts');
@@ -859,14 +846,14 @@ function updateBlogLanguage(lang) {
         },
         {
             title_en: 'Recommended Shopping Bags to Replace Plastic Bags',
-            excerpt_en: 'Currently, the use of plastic bags in several shopping centers has been banned by the government.',
+            excerpt_en: 'Currently, the use of plastic bags in several shopping centres has been banned by the government.',
             date_en: 'May 2, 2025',
             title_id: 'Rekomendasi Tas Belanja Pengganti Kantong Plastik',
             excerpt_id: 'Saat ini, penggunaan kantong plastik di beberapa pusat perbelanjaan telah dilarang oleh pemerintah.',
             date_id: '2 Mei 2025'
         },
         {
-            title_en: 'Cheap and Functional Wedding Souvenir Bag Recommendations',
+            title_en: 'Affordable and Functional Wedding Souvenir Bag Recommendations',
             excerpt_en: 'Wedding souvenirs are not just souvenirs, but also one of the most important factors that will give a deep impression to the guests',
             date_en: 'April 20, 2025',
             title_id: 'Rekomendasi Tas Souvenir Pernikahan Murah dan Fungsional',
