@@ -256,7 +256,7 @@ function setIndonesianLanguage() {
         changeElementText('about-paragraph-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini menghasilkan kepercayaan dan kepuasan pelanggan.');
         // About page gallery captions
         changeElementText('about-gallery-title', 'Galeri Foto');
-        changeElementText('about-gallery-caption-1', "Pemilik Tas Anyaman Mba' Ratna: Dwi Ratnasari, pemilik UMKM Tas Anyaman Mba' Ratna, guru TK yang aktif dan kreatif");
+        changeElementText('about-gallery-caption-1', "Pemilik Tas Anyaman Mba’ Ratna: Dwi Ratnasari seorang guru TK yang aktif dan kreatif");
         changeElementText('about-gallery-caption-2', 'Proses pembuatan: Proses pembuatan tas anyaman dilakukan secara tradisional dengan tangan');
         changeElementText('about-gallery-caption-3', 'Produk tas souvenir: tas souvenir grosir yang dapat digunakan untuk souvenir pernikahan');
         changeElementText('about-gallery-caption-4', 'Bahan tas anyaman: Bahan utama tas anyaman ini berasal dari limbah plastik daur ulang');
@@ -277,7 +277,7 @@ function setIndonesianLanguage() {
         changeElementText('process-3-title', 'Proses Menenun');
         changeElementText('process-3-desc', 'Pengrajin terampil menenun setiap produk dengan tangan menggunakan teknik tradisional yang diwariskan turun-temurun.');
         changeElementText('process-4-title', 'Finishing');
-        changeElementText('process-4-desc', 'Setiap produk diselesaikan dengan cermat dengan memperhatikan detail, memastikan daya tahan dan daya tarik estetika.');
+        changeElementText('process-4-desc', 'Setiap produk yang dihasilkan diperhatikan dengan cermat untuk memastikan daya tahan dan estetika.');
         changeElementText('process-5-title', 'Pemeriksaan Kualitas');
         changeElementText('process-5-desc', 'Setiap produk menjalani pemeriksaan kualitas menyeluruh untuk memastikan memenuhi standar tinggi kami sebelum ditawarkan kepada pelanggan.');
         // Footer
@@ -439,7 +439,7 @@ function setIndonesianLanguage() {
     changeElementText('about-subtitle-home', 'Melestarikan Tradisi Kerajinan Tangan');
     changeElementText('about-paragraph-home-1', 'Tas Anyaman Mba Ratna didirikan pada tahun 2020 oleh Dwi Ratnasari. Misinya adalah melestarikan dan memajukan teknik anyaman tradisional sederhana yang telah diwariskan dari generasi ke generasi.');
     changeElementText('about-paragraph-home-2', 'Tas anyaman yang dihasilkan dibuat dengan cermat menggunakan metode tenun tradisional. Hal ini dapat melestarikan keterampilan tradisional yang telah diwariskan dan akan terus berkembang di dunia modern. Bekerja langsung dengan pengrajin lokal sebagai mata pencaharian berkelanjutan dengan memberikan upah layak sebagai bentuk apresiasi atas bakat seni luar biasa para pengrajin.');
-    changeElementText('about-paragraph-home-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini menghasilkan kepercayaan dan kepuasan pelanggan. Dengan membeli katalog tas anyaman kami, Anda tidak hanya membeli barang tradisional dari tangan-tangan terampil, tetapi juga mendukung pelestarian budaya dan kerajinan tradisional yang berkelanjutan.');
+    changeElementText('about-paragraph-home-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini menghasilkan kepercayaan dan kepuasan pelanggan. Dengan membeli produk kami.');
 }
 
 function setEnglishLanguage() {
@@ -526,7 +526,7 @@ function setEnglishLanguage() {
         changeElementText('about-paragraph-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction.');
         // About page gallery captions
         changeElementText('about-gallery-title', 'Photo Gallery');
-        changeElementText('about-gallery-caption-1', "Owner of Mba' Ratna Woven Bags: Dwi Ratnasari, owner of Mba' Ratna Woven Bags MSME, an active and creative kindergarten teacher");
+        changeElementText('about-gallery-caption-1', "Owner of Tas Anyaman Mba’ Ratna: Dwi Ratnasari an active and creative kindergarten teacher");
         changeElementText('about-gallery-caption-2', 'Manufacturing process: The process of making woven bags is traditionally done by hand');
         changeElementText('about-gallery-caption-3', 'Souvenir bag product: wholesale souvenir bags that can be used for wedding souvenirs');
         changeElementText('about-gallery-caption-4', 'Woven bag material: The main material of this woven bag comes from recycled plastic waste');
@@ -709,7 +709,7 @@ function setEnglishLanguage() {
     changeElementText('about-subtitle-home', 'Preserving Handcraft Traditions');
     changeElementText('about-paragraph-home-1', 'Tas anyaman Mba Ratna was founded in 2020 by Dwi Ratnasari. The mission is to preserve and promote traditional, simple weaving techniques that have been passed down from generation to generation.');
     changeElementText('about-paragraph-home-2', 'The woven bags produced are carefully made using traditional weaving methods. This can preserve traditional skills passed down and will continue to develop in the modern world. Working directly with local craftsmen as a sustainable livelihood by providing decent wages as a form of appreciation for the extraordinary artistic talents of the craftsmen.');
-    changeElementText('about-paragraph-home-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction. Currently buying our woven bag catalogs, you are not only buying traditional goods from beautiful hands but also supporting the preservation of sustainable traditional culture and handicrafts.');
+    changeElementText('about-paragraph-home-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction. Currently buying our products does not only mean buying traditional goods from beautiful hands but also supporting the preservation of sustainable traditional culture and handicrafts.');
 }
 
 // Helper to convert featured product prices
