@@ -251,9 +251,9 @@ function setIndonesianLanguage() {
         changeElementText('about-page-title', 'Tentang Kami');
         changeElementText('about-page-subtitle', 'Pelajari tentang cerita, misi, dan pengrajin di balik produk kami');
         changeElementText('about-subtitle', 'Cerita Kami');
-        changeElementText('about-paragraph-1', 'Tas Anyaman Mba Ratna didirikan pada tahun 2020 oleh Dwi Ratnasari. Dengan misi melestarikan dan memajukan teknik tenun tradisional sederhana yang telah diwariskan dari generasi ke generasi.');
-        changeElementText('about-paragraph-2', 'Tas anyaman yang dihasilkan dibuat dengan cermat menggunakan metode tenun tradisional. Hal ini dapat melestarikan keterampilan tradisional yang telah diwariskan dan akan terus berkembang di dunia modern.');
-        changeElementText('about-paragraph-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini menghasilkan kepercayaan dan kepuasan pelanggan.');
+        changeElementText('about-paragraph-1', 'Tas Anyaman Mba Ratna didirikan pada tahun 2020 oleh Dwi Ratnasari. Misinya adalah melestarikan dan memajukan teknik anyaman tradisional sederhana yang telah diwariskan dari generasi ke generasi.');
+        changeElementText('about-paragraph-2', 'Tas anyaman yang dihasilkan dibuat dengan cermat menggunakan metode tenun tradisional. Hal ini dapat melestarikan keterampilan tradisional yang telah diwariskan dan akan terus berkembang di dunia modern. Bekerja langsung dengan pengrajin lokal sebagai mata pencaharian berkelanjutan dengan memberikan upah layak sebagai bentuk apresiasi atas bakat seni luar biasa para pengrajin.');
+        changeElementText('about-paragraph-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini untuk membangun kepercayaan dan kepuasan pelanggan. Membeli produk kami tidak hanya berarti membeli barang tradisional dari tangan-tangan cantik, tetapi juga mendukung pelestarian budaya dan kerajinan tradisional yang berkelanjutan.');
         // About page gallery captions
         changeElementText('about-gallery-title', 'Galeri Foto');
         changeElementText('about-gallery-caption-1', "Pemilik Tas Anyaman Mba’ Ratna: Dwi Ratnasari seorang guru TK yang aktif dan kreatif");
@@ -321,7 +321,7 @@ function setIndonesianLanguage() {
         changeElementText('footer-left', 'Lihat Lokasi di Google Maps');
     } else if (page === 'gallery.html') {
         changeElementText('gallery-page-title', 'Galeri Kami');
-        changeElementText('gallery-page-subtitle', 'Jelajahi keahlian kami melalui gambar produk dan proses kami');
+        changeElementText('gallery-page-subtitle', 'Jelajahi galeri kami untuk menyaksikan video proses produksi dan promosi');
         changeElementText('gallery-videos-title', 'Video Kami');
         changeElementText('promo-video-title', 'Video Promosi');
         changeElementText('promo-video-subtitle', 'Tas Anyaman Premium Mba Ratna');
@@ -411,7 +411,7 @@ function setIndonesianLanguage() {
     
     // Gallery page translations
     changeElementText('gallery-page-title', 'Galeri Kami');
-    changeElementText('gallery-page-subtitle', 'Jelajahi keahlian kami melalui gambar produk dan proses kami');
+    changeElementText('gallery-page-subtitle', 'Jelajahi galeri kami untuk menyaksikan video proses produksi dan promosi');
     changeElementText('gallery-videos-title', 'Video Kami');
     changeElementText('promo-video-title', 'Video Promosi');
     changeElementText('promo-video-subtitle', 'Tas Anyaman Premium Mba Ratna');
@@ -439,7 +439,7 @@ function setIndonesianLanguage() {
     changeElementText('about-subtitle-home', 'Melestarikan Tradisi Kerajinan Tangan');
     changeElementText('about-paragraph-home-1', 'Tas Anyaman Mba Ratna didirikan pada tahun 2020 oleh Dwi Ratnasari. Misinya adalah melestarikan dan memajukan teknik anyaman tradisional sederhana yang telah diwariskan dari generasi ke generasi.');
     changeElementText('about-paragraph-home-2', 'Tas anyaman yang dihasilkan dibuat dengan cermat menggunakan metode tenun tradisional. Hal ini dapat melestarikan keterampilan tradisional yang telah diwariskan dan akan terus berkembang di dunia modern. Bekerja langsung dengan pengrajin lokal sebagai mata pencaharian berkelanjutan dengan memberikan upah layak sebagai bentuk apresiasi atas bakat seni luar biasa para pengrajin.');
-    changeElementText('about-paragraph-home-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini menghasilkan kepercayaan dan kepuasan pelanggan. Dengan membeli produk kami.');
+    changeElementText('about-paragraph-home-3', 'Komitmen kami terhadap kualitas, keaslian, dan keberlanjutan memungkinkan UMKM tas anyaman ini untuk membangun kepercayaan dan kepuasan pelanggan. Membeli produk kami tidak hanya berarti membeli barang tradisional dari tangan-tangan cantik, tetapi juga mendukung pelestarian budaya dan kerajinan tradisional yang berkelanjutan.');
 }
 
 function setEnglishLanguage() {
@@ -521,9 +521,9 @@ function setEnglishLanguage() {
         changeElementText('about-page-title', 'About Us');
         changeElementText('about-page-subtitle', 'Learn about our story, mission, and the artisans behind our products');
         changeElementText('about-subtitle', 'Our Story');
-        changeElementText('about-paragraph-1', 'Tas Anyaman Mba Ratna was founded in 2020 by Dwi Ratnasari. With a mission to preserve and promote traditional simple weaving techniques that have been passed down from generation to generation.');
-        changeElementText('about-paragraph-2', 'The woven bags produced are carefully made using traditional weaving methods. This can preserve traditional skills passed down and will continue to develop in the modern world.');
-        changeElementText('about-paragraph-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction.');
+        changeElementText('about-paragraph-1', 'Tas anyaman Mba Ratna was founded in 2020 by Dwi Ratnasari. The mission is to preserve and promote traditional, simple weaving techniques that have been passed down from generation to generation.');
+        changeElementText('about-paragraph-2', 'The woven bags produced are carefully made using traditional weaving methods. This can preserve traditional skills passed down and will continue to develop in the modern world. Working directly with local craftsmen as a sustainable livelihood by providing decent wages as a form of appreciation for the extraordinary artistic talents of the craftsmen.');
+        changeElementText('about-paragraph-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction. Buying our products does not only mean buying traditional goods from beautiful hands but also supporting the preservation of sustainable traditional culture and handicrafts.');
         // About page gallery captions
         changeElementText('about-gallery-title', 'Photo Gallery');
         changeElementText('about-gallery-caption-1', "Owner of Tas Anyaman Mba’ Ratna: Dwi Ratnasari an active and creative kindergarten teacher");
@@ -591,7 +591,7 @@ function setEnglishLanguage() {
         changeElementText('footer-left', 'View Location on Google Maps');
     } else if (page === 'gallery.html') {
         changeElementText('gallery-page-title', 'Our Gallery');
-        changeElementText('gallery-page-subtitle', 'Explore our craftsmanship through images of our products and process');
+        changeElementText('gallery-page-subtitle', 'Explore our gallery to watch our manufacturing and promotional videos');
         changeElementText('gallery-videos-title', 'Our Videos');
         changeElementText('promo-video-title', 'Promotional Video');
         changeElementText('promo-video-subtitle', "Mba Ratna's Premium Woven Bag");
@@ -709,7 +709,7 @@ function setEnglishLanguage() {
     changeElementText('about-subtitle-home', 'Preserving Handcraft Traditions');
     changeElementText('about-paragraph-home-1', 'Tas anyaman Mba Ratna was founded in 2020 by Dwi Ratnasari. The mission is to preserve and promote traditional, simple weaving techniques that have been passed down from generation to generation.');
     changeElementText('about-paragraph-home-2', 'The woven bags produced are carefully made using traditional weaving methods. This can preserve traditional skills passed down and will continue to develop in the modern world. Working directly with local craftsmen as a sustainable livelihood by providing decent wages as a form of appreciation for the extraordinary artistic talents of the craftsmen.');
-    changeElementText('about-paragraph-home-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction. Currently buying our products does not only mean buying traditional goods from beautiful hands but also supporting the preservation of sustainable traditional culture and handicrafts.');
+    changeElementText('about-paragraph-home-3', 'Our commitment to quality, authenticity, and sustainability enables these woven bag MSMEs to generate trust and customer satisfaction. Buying our products does not only mean buying traditional goods from beautiful hands but also supporting the preservation of sustainable traditional culture and handicrafts.');
 }
 
 // Helper to convert featured product prices
